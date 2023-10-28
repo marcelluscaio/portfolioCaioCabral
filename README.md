@@ -4,8 +4,9 @@
 
 ## Chores
 
+- [x] Create gitignore
 - [x] Start readme
-- [x] Configure Prettier and Eslint
+- [x] Configure Prettier and ESLint
 - [ ] Reset css
 
 - [ ] Set project's typography
