@@ -4,10 +4,12 @@
 
 ## Chores
 
-- [x] Create gitignore
 - [x] Start readme
+- [x] Create gitignore
 - [x] Configure Prettier and ESLint
-- [ ] Reset css
+- [x] Create staging environment and server
+- [x] Install Sass
+- [x] Reset CSS
 
 - [ ] Set project's typography
 
