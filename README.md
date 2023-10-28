@@ -5,7 +5,7 @@
 ## Chores
 
 - [x] Start readme
-- [ ] Configure Prettier, Eslint and Husky
+- [x] Configure Prettier and Eslint
 - [ ] Reset css
 
 - [ ] Set project's typography
