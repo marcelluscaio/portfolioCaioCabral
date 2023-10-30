@@ -11,10 +11,10 @@
 - [x] Install Sass
 - [x] Reset CSS
 
-- [ ] Set project's typography
+- [x] Set project's typography
 
-  - [ ] Choose and import font-family
-  - [ ] Set sizes, weights and line-heights
+  - [x] Choose and import font-family
+  - [x] Set sizes, weights and line-heights
 
 - [ ] Set project's colors
 
