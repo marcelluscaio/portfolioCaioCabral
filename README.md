@@ -16,7 +16,7 @@
   - [x] Choose and import font-family
   - [x] Set sizes, weights and line-heights
 
-- [ ] Set project's colors
+- [x] Set project's colors
 
 - [ ] Set project's layout structure
 

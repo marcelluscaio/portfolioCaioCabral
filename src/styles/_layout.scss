@@ -1,0 +1,8 @@
+@use "./typography" as *;
+
+:root {
+	--container-width: 93%;
+	--container-maxWidth: 35rem; /* 560px */
+
+	--section-paddingBlock: var(--fs-5);
+}
