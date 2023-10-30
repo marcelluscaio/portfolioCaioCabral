@@ -3,7 +3,22 @@
     <nav>
       <ul>
         <li>
-          <a class="title--small" href="#">Caio Marcellus</a>
+          <a class="title--small" href="#">
+            <span>C</span>
+            <span>a</span>
+            <span>i</span>
+            <span>o</span>
+             
+            <span>M</span>
+            <span>a</span>
+            <span>r</span>
+            <span>c</span>
+            <span>e</span>
+            <span>l</span>
+            <span>l</span>
+            <span>u</span>
+            <span>s</span>
+          </a>
         </li>
         <li>
           <a class="regular-text--medium" href="#">About</a>
@@ -25,10 +40,12 @@
 <style lang="scss">
 @use "../styles/style" as *;
 
+$bg-color: $purple-700;
+
 header{
   padding-block: var(--section-paddingBlock-small);
   
-  background-color: $purple-700;
+  background-color: $bg-color;
 
   color: $white
 }
@@ -41,6 +58,29 @@ ul{
 }
 
 ul > :first-child{
+  position: relative;
+
   margin-right: auto;
+
+  isolation: isolate;
 }
+
+a{
+  display: inline-block;
+
+  span{    
+    display: inline-block;
+
+    background-color: $bg-color;
+
+    &:nth-child(n + 2){
+      /* Implementar letras embaralhando  */
+
+
+      z-index: -1;
+    }
+  }
+}
+
+
 </style>
