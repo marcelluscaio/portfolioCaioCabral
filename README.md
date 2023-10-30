@@ -18,7 +18,7 @@
 
 - [x] Set project's colors
 
-- [ ] Set project's layout structure
+- [x] Set project's layout structure
 
   - [ ] Set horizontal margins
   - [ ] Set vertical margins and paddings

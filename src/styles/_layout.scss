@@ -3,6 +3,16 @@
 :root {
 	--container-width: 93%;
 	--container-maxWidth: 35rem; /* 560px */
+	@media (min-width: 50em) {
+		--container-maxWidth: 85rem; /* 1360px */
+	}
 
-	--section-paddingBlock: var(--fs-5);
+	--section-paddingBlock-small: var(--fs-3);
+	--section-paddingBlock-regular: var(--fs-5);
+}
+
+.container {
+	width: var(--container-width);
+	max-width: var(--container-maxWidth);
+	margin-inline: auto;
 }

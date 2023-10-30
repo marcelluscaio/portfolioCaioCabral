@@ -1,0 +1,46 @@
+<header>
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <a class="title--small" href="#">Caio Marcellus</a>
+        </li>
+        <li>
+          <a class="regular-text--medium" href="#">About</a>
+        </li>
+        <li>
+          <a class="regular-text--medium" href="#">Projects</a>
+        </li>
+        <li>
+          <a class="regular-text--medium" href="#">Articles</a>
+        </li>
+        <li>
+          <a class="regular-text--medium" href="#">Talk to me</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+@use "../styles/style" as *;
+
+header{
+  padding-block: var(--section-paddingBlock-small);
+  
+  background-color: $purple-700;
+
+  color: $white
+}
+
+ul{
+  display: flex;
+  align-items: center;
+
+  gap: var(--fs-3);
+}
+
+ul > :first-child{
+  margin-right: auto;
+}
+</style>
