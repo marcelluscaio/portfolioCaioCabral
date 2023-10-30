@@ -19,6 +19,7 @@
 - [ ] Set project's colors
 
 - [ ] Set project's layout structure
+
   - [ ] Set horizontal margins
   - [ ] Set vertical margins and paddings
 
@@ -43,7 +44,7 @@ https://www.youtube.com/watch?v=YtaR_I65wmI
 
 - Use typescript
 
-## features
+## Features
 
 Portfolio - Menu lateral com linha na vertical https://www.youtube.com/watch?v=LkZPd0oRlMQ
 
