@@ -1,27 +1,24 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/Caio.jpg"
+---
+
 <header>
   <div class="container">
     <nav>
       <ul>
         <li>
           <a class="title--small" href="#">
-            <span>C</span>
-            <span>a</span>
-            <span>i</span>
-            <span>o</span>
-             
-            <span>M</span>
-            <span>a</span>
-            <span>r</span>
-            <span>c</span>
-            <span>e</span>
-            <span>l</span>
-            <span>l</span>
-            <span>u</span>
-            <span>s</span>
+            <Image
+              src={logo}
+              alt="Picture of the author smiling with a bluen and purple background"  
+              class="logo"
+              />
+            <span>Caio Marcellus</span>
           </a>
         </li>
         <li>
-          <a class="regular-text--medium" href="#">About</a>
+          <a class="regular-text--medium" href="#" >About</a>
         </li>
         <li>
           <a class="regular-text--medium" href="#">Projects</a>
@@ -57,29 +54,18 @@ ul{
   gap: var(--fs-3);
 }
 
-ul > :first-child{
-  position: relative;
-
-  margin-right: auto;
-
-  isolation: isolate;
+.logo{
+  --size: 15vw;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
+  object-position: top 30% left 0;
+  
+  border-radius: 50%
 }
 
 a{
-  display: inline-block;
-
-  span{    
-    display: inline-block;
-
-    background-color: $bg-color;
-
-    &:nth-child(n + 2){
-      /* Implementar letras embaralhando  */
-
-
-      z-index: -1;
-    }
-  }
+  display: inline-block;  
 }
 
 

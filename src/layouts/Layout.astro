@@ -2,6 +2,7 @@
 import "../styles/reset.css";
 import "../styles/style.scss";
 import Header from "./Header.astro";
+import Aside from "./Aside.astro";
 
 interface Props {
 	title: string;
@@ -22,6 +23,13 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Header></Header>
-		<slot />
+		<main>
+			<slot />
+
+		</main>
 	</body>
 </html>
+
+<style>
+
+</style>

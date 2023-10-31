@@ -46,6 +46,14 @@ https://www.youtube.com/watch?v=YtaR_I65wmI
 
 ## Features
 
+Principais referencias
+https://ishadeed.com/
+
+https://craig-roush-portfolio-template.webflow.io/#latest-work
+
+Ver livro do josh comeau (li até a Cha´ter 5 )
+Ver ainda o da Julia codes no livro do Josh
+
 Portfolio - Menu lateral com linha na vertical https://www.youtube.com/watch?v=LkZPd0oRlMQ
 
 Props and utility classes with sass https://www.youtube.com/watch?v=gP8yFWCTr7Q&list=PL4-IK0AVhVjMYRhK9vRPatSlb-9r0aKgh&index=5
@@ -81,3 +89,6 @@ Vertical parada - https://brittanychiang.com/
 Usar isso no portfolio? https://tympanus.net/codrops/2023/10/03/animating-multi-page-navigations-with-browser-view-transitions-and-astro/?utm_source=convertkit&utm_medium=email&utm_campaign=Am+I+cursed%3F%20-%2011937043
 
 https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
+
+/_ Implementar letras embaralhando
+https://www.geeksforgeeks.org/how-to-create-sliding-text-reveal-animation-using-html-css/ _/
