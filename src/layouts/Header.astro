@@ -65,7 +65,24 @@ ul{
 }
 
 a{
-  display: inline-block;  
+  display: inline-block;
+
+}
+
+li:first-child {
+  a{
+    position: relative;
+    span{
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateY(1em) translateX(-50%) scale(-1);
+      
+      line-height: 1;
+      writing-mode: tb;
+      text-wrap: nowrap;
+    }
+  }
 }
 
 
