@@ -28,7 +28,7 @@
 - [ ] Structure (spacing, sizes, colors)
 
   - [x] Header
-  - [ ]
+  - [x] Footer
 
 - [ ] Animation
 

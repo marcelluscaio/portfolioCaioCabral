@@ -7,27 +7,35 @@ import logo from "../assets/images/Caio.jpg"
   <div class="container">
     <nav>
       <ul>
-        <li>
+        <li class="logo__list-item">
           <a class="title--small" href="#">
             <Image
               src={logo}
               alt="Picture of the author smiling with a bluen and purple background"  
               class="logo"
+              aria-label="Link to home"
               />
             <span>Caio Marcellus</span>
           </a>
         </li>
         <li>
-          <a class="regular-text--medium" href="#" >About</a>
+          <button>x</button>
         </li>
         <li>
-          <a class="regular-text--medium" href="#">Projects</a>
-        </li>
-        <li>
-          <a class="regular-text--medium" href="#">Articles</a>
-        </li>
-        <li>
-          <a class="regular-text--medium" href="#">Talk to me</a>
+          <ul class="navigation-items">
+            <li>
+              <a class="regular-text--medium" href="#" >About</a>
+            </li>
+            <li>
+              <a class="regular-text--medium" href="#">Projects</a>
+            </li>
+            <li>
+              <a class="regular-text--medium" href="#">Articles</a>
+            </li>
+            <li>
+              <a class="regular-text--medium" href="#">Talk to me</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
@@ -54,60 +62,71 @@ ul{
   gap: var(--fs-3);
 }
 
-.logo{
-  width: $logo-size;
-  height: $logo-size;
-  object-fit: cover;
-  object-position: top 30% left 0;
-  border: 2px solid $white;
-  
-  border-radius: 50%;
-
-  /* box-shadow: 0 0 1vw rgba(256,256,256, .2), 0 0 0 0.5vw $bg-color */
-  
-}
-
 a{
   display: inline-block;
-
 }
 
-li:first-child {
+.logo__list-item{
   a{
-    position: relative;
-/* 
-    LINHA PARA TESTES DE ALINHAMENTO
-    &::after{
-    content: '';
-    display: inline-block;
-    position: absolute;
-    width: 1px;
-    height: 100%;
-
-    background-color: red;
-    } */
-    span{
-      display: inline-block;
-
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateY(4vh) translateX(-50%)/*  scale(-1) */;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .logo{
+      width: $logo-size;
+      height: $logo-size;
+      object-fit: cover;
+      object-position: top 30% left 0;
+      border: 2px solid $white;
       
-      padding-bottom: 0.75em;
+      border-radius: 50%;  
+    }
+    span{
+      margin-left: .5em;
       
       background-color: #362942;
       
       font-size: var(--fs-1);
       line-height: 1;
-      writing-mode: tb;
-      text-wrap: nowrap;
-      text-orientation: upright;
-      letter-spacing: -.4em;
       text-transform: uppercase;
     }
-  }
+  }  
 }
+
+
+
+
+
+
+.navigation-items{
+  display: none;
+}
+
+@media (min-width: 40em){
+  .logo__list-item{
+    a{
+      position: relative;
+      span{
+        display: inline-block;
+        
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateY(4vh) translateX(-50%);
+        
+        padding-bottom: 0.75em;
+        
+        writing-mode: tb;
+        text-wrap: nowrap;
+        text-orientation: upright;
+        letter-spacing: -.4em;
+      }
+    }
+  }
+
+  .navigation-items{
+    display: flex;
+  }
+  }
 
 
 </style>
