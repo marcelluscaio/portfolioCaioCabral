@@ -59,10 +59,11 @@ ul{
   height: $logo-size;
   object-fit: cover;
   object-position: top 30% left 0;
+  border: 2px solid $white;
   
   border-radius: 50%;
 
-  box-shadow: 0 0 1vw rgba(256,256,256, .2), 0 0 0 0.5vw $bg-color
+  /* box-shadow: 0 0 1vw rgba(256,256,256, .2), 0 0 0 0.5vw $bg-color */
   
 }
 
@@ -86,22 +87,24 @@ li:first-child {
     background-color: red;
     } */
     span{
+      display: inline-block;
+
       position: absolute;
       top: 100%;
       left: 50%;
       transform: translateY(4vh) translateX(-50%)/*  scale(-1) */;
       
+      padding-bottom: 0.75em;
+      
+      background-color: #362942;
+      
+      font-size: var(--fs-1);
       line-height: 1;
       writing-mode: tb;
       text-wrap: nowrap;
-
       text-orientation: upright;
       letter-spacing: -.4em;
-      background-color: #362942;
-      padding-bottom: 0.75em;
-      display: inline-block;
-
-      font-size: var(--fs-1);
+      text-transform: uppercase;
     }
   }
 }
