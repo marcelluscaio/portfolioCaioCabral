@@ -2,7 +2,6 @@
 import "../styles/reset.css";
 import "../styles/style.scss";
 import Header from "./Header.astro";
-import Aside from "./Aside.astro";
 
 interface Props {
 	title: string;
@@ -22,6 +21,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<div class="vertical-lign container"></div>
 		<Header></Header>
 		<main>
 			<slot />
@@ -30,6 +30,28 @@ const { title } = Astro.props;
 	</body>
 </html>
 
-<style>
+<style lang="scss">
+	@use "../styles/style" as *; 
+	
+	body{
+		position: relative;
 
+	}
+	
+	.vertical-lign{
+		position: absolute;
+		inset: 0;
+		
+		$line-size: 4px;
+		$start: calc(($logo-size/2) - ($line-size / 2));
+		$end: calc(($logo-size/2) + ($line-size / 2));
+		background-image: linear-gradient(to right, transparent calc($start - 1px), $white $start, $white $end, transparent calc($end + 1px))
+
+	}
+
+	main{
+		background-color: $purple-700;
+		height: 100vh;
+		/*Trar essa height*/
+	}
 </style>

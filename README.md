@@ -20,8 +20,19 @@
 
 - [x] Set project's layout structure
 
-  - [ ] Set horizontal margins
-  - [ ] Set vertical margins and paddings
+  - [x] Set horizontal margins
+  - [x] Set vertical margins and paddings
+
+### Steps
+
+- [ ] Structure (spacing, sizes, colors)
+
+  - [x] Header
+  - [ ]
+
+- [ ] Animation
+
+- [ ] Data fetching
 
 ### Tests
 

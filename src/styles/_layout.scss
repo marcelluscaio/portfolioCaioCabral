@@ -2,9 +2,9 @@
 
 :root {
 	--container-width: 93%;
-	--container-maxWidth: 35rem; /* 560px */
+	/* --container-maxWidth: 35rem; */ /* 560px */
 	@media (min-width: 50em) {
-		--container-maxWidth: 85rem; /* 1360px */
+		/* --container-maxWidth: 100rem; */ /* 1360px */
 	}
 
 	--section-paddingBlock-small: var(--fs-3);
@@ -13,6 +13,8 @@
 
 .container {
 	width: var(--container-width);
-	max-width: var(--container-maxWidth);
+	/* max-width: var(--container-maxWidth); */
 	margin-inline: auto;
 }
+
+$logo-size: clamp(80px, 11vw, 320px);

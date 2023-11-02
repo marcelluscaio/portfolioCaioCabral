@@ -55,13 +55,15 @@ ul{
 }
 
 .logo{
-  --size: 15vw;
-  width: var(--size);
-  height: var(--size);
+  width: $logo-size;
+  height: $logo-size;
   object-fit: cover;
   object-position: top 30% left 0;
   
-  border-radius: 50%
+  border-radius: 50%;
+
+  box-shadow: 0 0 1vw rgba(256,256,256, .2), 0 0 0 0.5vw $bg-color
+  
 }
 
 a{
@@ -72,15 +74,34 @@ a{
 li:first-child {
   a{
     position: relative;
+/* 
+    LINHA PARA TESTES DE ALINHAMENTO
+    &::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 1px;
+    height: 100%;
+
+    background-color: red;
+    } */
     span{
       position: absolute;
       top: 100%;
       left: 50%;
-      transform: translateY(1em) translateX(-50%) scale(-1);
+      transform: translateY(4vh) translateX(-50%)/*  scale(-1) */;
       
       line-height: 1;
       writing-mode: tb;
       text-wrap: nowrap;
+
+      text-orientation: upright;
+      letter-spacing: -.4em;
+      background-color: #362942;
+      padding-bottom: 0.75em;
+      display: inline-block;
+
+      font-size: var(--fs-1);
     }
   }
 }
