@@ -1,0 +1,21 @@
+@use "./typography" as *;
+
+:root {
+	--container-width: 93%;
+	/* --container-maxWidth: 35rem; */ /* 560px */
+	@media (min-width: 50em) {
+		/* --container-maxWidth: 100rem; */ /* 1360px */
+	}
+
+	--section-paddingBlock-small: var(--fs-3);
+	--section-paddingBlock-regular: var(--fs-5);
+	--section-paddingBlock-large: var(--fs-6);
+}
+
+.container {
+	width: var(--container-width);
+	/* max-width: var(--container-maxWidth); */
+	margin-inline: auto;
+}
+
+$logo-size: clamp(80px, 11vw, 320px);

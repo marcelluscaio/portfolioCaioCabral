@@ -1,0 +1,111 @@
+<footer>
+  <div class="container">
+    <div class="author">
+      <h2 class="title--medium"> I am Caio, and this is my work</h2>
+      <p class="regular-text--small">Front-end Developer Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat autem placeat quod facere magnam debitis eos, repellendus ea ratione esse, veniam inventore eligendi itaque sapiente temporibus fugit earum ut.</p>
+    </div>
+    <div>
+      <h3 class="title--small">You can also find me on</h3>
+      <ul>
+        <li class="regular-text--medium">
+          <a href="https://www.linkedin.com/in/caio-marcellus-cabral" >
+            Linkedin
+          </a>        
+        </li>
+        <li class="regular-text--medium">
+          <a href="https://github.com/marcelluscaio" >
+            Github
+          </a>
+        </li>
+      </ul>
+    </div>
+    <nav>
+      <h3 class="title--small">Explore my portfolio</h3>
+      <ul>
+        <li class="regular-text--medium">
+          <a href="#" >
+            About
+          </a>
+        </li>
+        <li class="regular-text--medium">
+          <a href="#" >
+            Projects
+          </a>
+        </li>
+        <li class="regular-text--medium">
+          <a href="#" >
+            Articles
+          </a>
+        </li>
+        <li class="regular-text--medium">
+          <a href="#" >
+            Talk to me
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <span class="copyright regular-text--small">© Copyright 2023 - Created by <a href="#">Caio Marcellus</a></span> 
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles/style" as *;
+
+  footer{
+    position: relative;
+    z-index: 1;
+    
+    padding-block: var(--section-paddingBlock-large) var(--section-paddingBlock-small);
+
+    background-color: $white;
+
+    color: $purple-700;
+  }
+
+  .container{
+    display: grid; 
+    column-gap: var(--section-paddingBlock-regular) ;
+    row-gap: var(--section-paddingBlock-large);
+
+    & > * {
+      text-align: center;
+    }
+
+    &  p{
+      text-align: left;
+    }
+
+  }
+
+  .author{
+    max-width: 80ch;
+    justify-self: center;
+    & > * + p{
+      margin-top: 1em;
+    }
+  }
+  
+  h3{
+    margin-bottom: .5em;
+  }
+
+  ul > li + li{
+    margin-top: .75em;
+  }
+  
+  .copyright{
+    text-align: center;
+  }
+
+  @media (min-width: 60em){
+    .container{
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .author,
+    .copyright{
+      grid-column: span 2
+    }
+
+  }
+</style>

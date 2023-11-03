@@ -1,0 +1,185 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/Caio.jpg"
+---
+
+<header>
+  <div class="container">
+    <nav>
+      <ul>
+        <li class="logo__list-item">
+          <a 
+            class="title--small" 
+            href="#" 
+            aria-label="Link to home"
+          >
+            <Image
+              src={logo}
+              alt="Picture of the author smiling with a bluen and purple background"  
+              class="logo"
+            />
+            <span>Caio Marcellus</span>
+          </a>
+        </li>
+        <li class="burger-button">
+          <button>
+            <div></div>
+            <div></div>
+            <div></div>
+          </button>
+        </li>
+        <li class="navigation-items">
+          <ul >
+            <li>
+              <a class="regular-text--medium" href="#" >About</a>
+            </li>
+            <li>
+              <a class="regular-text--medium" href="#">Projects</a>
+            </li>
+            <li>
+              <a class="regular-text--medium" href="#">Articles</a>
+            </li>
+            <li>
+              <a class="regular-text--medium" href="#">Talk to me</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const button = document.querySelector(".burger-button button");
+  const menu = document.querySelector(".navigation-items");
+  button?.addEventListener("click", () => {
+    menu?.classList.toggle("open");
+  })
+</script>
+
+<style lang="scss">
+@use "../styles/style" as *;
+
+$bg-color: $purple-700;
+
+header{
+  padding-block: var(--section-paddingBlock-small);
+  
+  background-color: $bg-color;
+
+  color: $white
+}
+
+ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: var(--fs-3);
+}
+
+a{
+  display: inline-block;
+}
+
+.logo__list-item{
+  a{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: calc(var(--fs-1) / 2);
+    .logo{
+      width: $logo-size;
+      height: $logo-size;
+      object-fit: cover;
+      object-position: top 30% left 0;
+      border: 2px solid $white;
+      
+      border-radius: 50%;  
+    }
+    span{      
+      background-color: $purple-700;
+      
+      font-size: var(--fs-1);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }  
+}
+
+.burger-button{
+  flex-shrink: 0;
+  
+  & button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    --line-size: .125rem;
+    gap: calc(var(--line-size) * 2);
+
+    --size: max(7vw, 2.25rem);
+    min-width: var(--size);
+    min-height: var(--size);  
+    padding: .25rem;  
+    border-radius: 50%;
+    
+    background-color: $white;
+    & div{
+      width: 70%;
+      height: var(--line-size);
+  
+      background-color: $purple-700;
+
+      &::before{
+        content: '';
+
+      }
+    }
+  }
+}
+
+.navigation-items{
+  display: none;
+  &.open{
+    display: block;
+  }
+}
+
+@media (min-width: 40em){
+  .logo__list-item{
+    a{
+      display: inline-block;
+
+      position: relative;
+
+      gap: 0;
+      span{
+        display: inline-block;
+        
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateY(4vh) translateX(-50%);
+        
+        padding-bottom: 0.75em;
+        
+        writing-mode: tb;
+        text-wrap: nowrap;
+        text-orientation: upright;
+        letter-spacing: -.4em;
+      }
+    }
+  }
+
+  .burger-button{
+    display: none;
+  }
+
+  .navigation-items{
+    display: unset;
+  }
+  }
+
+
+</style>

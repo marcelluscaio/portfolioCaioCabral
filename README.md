@@ -4,21 +4,50 @@
 
 ## Chores
 
-- [x] Create gitignore
 - [x] Start readme
+- [x] Create gitignore
 - [x] Configure Prettier and ESLint
-- [ ] Reset css
+- [x] Create staging environment and server
+- [x] Install Sass
+- [x] Reset CSS
 
-- [ ] Set project's typography
+- [x] Set project's typography
 
-  - [ ] Choose and import font-family
-  - [ ] Set sizes, weights and line-heights
+  - [x] Choose and import font-family
+  - [x] Set sizes, weights and line-heights
 
-- [ ] Set project's colors
+- [x] Set project's colors
 
-- [ ] Set project's layout structure
-  - [ ] Set horizontal margins
-  - [ ] Set vertical margins and paddings
+- [x] Set project's layout structure
+
+  - [x] Set horizontal margins
+  - [x] Set vertical margins and paddings
+
+### Steps
+
+- [ ] Structure (spacing, sizes, colors), responsiveness
+
+  - [x] Header
+    - [x] HTML
+    - [x] Mobile
+    - [x] Desktop
+  - [x] Footer
+    - [x] HTML
+    - [x] Mobile
+    - [x] Desktop
+  - [x] About me
+    - [x] HTML
+    - [x] Mobile
+    - [x] Desktop
+  - [ ] Projects
+  - [ ] Articles
+  - [ ] Contact
+
+- [ ] Animation
+
+- [ ] Selection and scrollbar
+
+- [ ] Content (Data fetching?)
 
 ### Tests
 
@@ -41,7 +70,15 @@ https://www.youtube.com/watch?v=YtaR_I65wmI
 
 - Use typescript
 
-## features
+## Features
+
+Principais referencias
+https://ishadeed.com/
+
+https://craig-roush-portfolio-template.webflow.io/#latest-work
+
+Ver livro do josh comeau (li até a Cha´ter 5 )
+Ver ainda o da Julia codes no livro do Josh
 
 Portfolio - Menu lateral com linha na vertical https://www.youtube.com/watch?v=LkZPd0oRlMQ
 
@@ -78,3 +115,6 @@ Vertical parada - https://brittanychiang.com/
 Usar isso no portfolio? https://tympanus.net/codrops/2023/10/03/animating-multi-page-navigations-with-browser-view-transitions-and-astro/?utm_source=convertkit&utm_medium=email&utm_campaign=Am+I+cursed%3F%20-%2011937043
 
 https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
+
+/_ Implementar letras embaralhando
+https://www.geeksforgeeks.org/how-to-create-sliding-text-reveal-animation-using-html-css/ _/

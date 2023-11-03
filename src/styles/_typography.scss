@@ -1,0 +1,67 @@
+@font-face {
+	font-family: "Exo 2";
+	src: url("/exo-2-v21-latin-regular.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Playpen Sans";
+	src: url("/playpen-sans-v3-latin-regular.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+:root {
+	/*
+  Fonts for screens from 320px to 1970px
+  @link https://utopia.fyi/type/calculator?c=320,14,1.25,1970,22,1.25,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--fs-1: clamp(0.875rem, 0.778rem + 0.4848vw, 1.375rem); /* 14px - 22px*/
+	--fs-2: clamp(1.0938rem, 0.9725rem + 0.6061vw, 1.7188rem); /* 17px - 27px*/
+	--fs-3: clamp(1.3675rem, 1.216rem + 0.7576vw, 2.1488rem); /* 21px - 34px*/
+	--fs-4: clamp(1.7088rem, 1.5193rem + 0.9473vw, 2.6856rem); /* 27px - 42px*/
+	--fs-5: clamp(2.1363rem, 1.8995rem + 1.1836vw, 3.3569rem); /* 34px - 53px*/
+	--fs-6: clamp(2.67rem, 2.374rem + 1.48vw, 4.1963rem); /* 42px - 67px*/
+}
+
+.title {
+	font-family: "Playpen Sans";
+	line-height: 1.2;
+
+	&--small {
+		@extend .title;
+		font-size: var(--fs-4);
+	}
+
+	&--medium {
+		@extend .title;
+		font-size: var(--fs-5);
+	}
+
+	&--large {
+		@extend .title;
+		font-size: var(--fs-6);
+	}
+}
+
+.regular-text {
+	font-family: "Exo 2";
+	line-height: 1.2;
+
+	&--small {
+		@extend .regular-text;
+		font-size: var(--fs-1);
+	}
+
+	&--medium {
+		@extend .regular-text;
+		font-size: var(--fs-2);
+	}
+
+	&--large {
+		@extend .regular-text;
+		font-size: var(--fs-3);
+	}
+}
