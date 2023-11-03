@@ -25,7 +25,10 @@ const { title } = Astro.props;
 		<div class="vertical-lign container"></div>
 		<Header/>
 		<main>
-			<slot />
+			<div class="container">
+
+				<slot />
+			</div>
 
 		</main>
 		<Footer/>
@@ -66,5 +69,9 @@ const { title } = Astro.props;
 		background-color: $purple-700;
 		height: 100vh;
 		/*Trar essa height*/
+
+		.container{
+			padding-left: $logo-size;
+		}
 	}
 </style>
