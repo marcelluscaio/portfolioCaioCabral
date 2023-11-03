@@ -35,7 +35,10 @@
     - [x] HTML
     - [x] Mobile
     - [x] Desktop
-  - [ ] About me
+  - [x] About me
+    - [x] HTML
+    - [x] Mobile
+    - [x] Desktop
   - [ ] Projects
   - [ ] Articles
   - [ ] Contact

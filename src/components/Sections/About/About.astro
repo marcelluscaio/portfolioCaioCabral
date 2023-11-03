@@ -1,0 +1,67 @@
+---
+/* import animation from "/lottieAnimations/PXSgcT8sNU.json"  */
+---
+<section>
+  <h1 class="title--small">Hi, my name is Caio Marcellus.<span class="title--large">Welcome to my portfolio</span></h1>
+  <lottie-player 
+    src="/lottieAnimations/GqCqYx1atO.json" 
+    background="transparent"  
+    speed="1"  
+    loop
+    autoplay
+  >
+  </lottie-player>
+  <p class="regular-text--small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit harum veniam omnis expedita provident quaerat mollitia minus earum? Nobis maiores possimus assumenda a eum quos, atque porro fugit necessitatibus quod omnis dolor odit! </p>
+  <p class="regular-text--small">Quo mollitia quod sequi obcaecati nobis similique et cum, sint ex voluptatibus ut illum pariatur, quaerat nam. Architecto doloremque doloribus officia? Exercitationem repellat sapiente quidem fugiat! Corporis unde ducimus debitis aspernatur hic cum esse quas officia dolore tenetur? Placeat tempora nihil exercitationem! Quod in est nihil commodi sed ipsam, totam voluptatibus tenetur accusamus, eum possimus cupiditate dignissimos itaque consequatur provident laborum natus tempora! Voluptate in autem nesciunt.</p>
+  <p class="regular-text--small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit harum veniam omnis expedita provident quaerat mollitia minus earum? Nobis maiores possimus assumenda a eum quos, atque porro fugit necessitatibus quod omnis dolor odit! </p>
+</section>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<style lang="scss">
+  @use "../../../styles/style.scss" as *;
+
+  section{
+    color: $white;
+  }
+
+  lottie-player{
+    $size: max(20vw, min(300px, 100%));
+    width: $size;
+    height: $size;
+    margin-inline: auto;
+  }
+
+  h1{
+    text-align: center;
+    & span{
+      display: block
+    }
+  }
+
+  p{
+    max-width: 80ch;
+    margin-inline: auto;
+    padding-inline: 4vw;
+  }
+
+  * + p {
+    margin-top: .75em;
+  }
+
+  @media (min-width: 40em){
+    lottie-player{
+
+      margin-right: 4vw;
+      margin-bottom: 4vw;
+      
+      float: left;
+      shape-outside: circle(50%);
+    }
+
+    p{
+      padding-inline: 0;
+    }
+  }
+
+</style>
