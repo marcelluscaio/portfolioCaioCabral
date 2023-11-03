@@ -8,21 +8,28 @@ import logo from "../assets/images/Caio.jpg"
     <nav>
       <ul>
         <li class="logo__list-item">
-          <a class="title--small" href="#">
+          <a 
+            class="title--small" 
+            href="#" 
+            aria-label="Link to home"
+          >
             <Image
               src={logo}
               alt="Picture of the author smiling with a bluen and purple background"  
               class="logo"
-              aria-label="Link to home"
-              />
+            />
             <span>Caio Marcellus</span>
           </a>
         </li>
-        <li>
-          <button>x</button>
+        <li class="burger-button">
+          <button>
+            <div></div>
+            <div></div>
+            <div></div>
+          </button>
         </li>
-        <li>
-          <ul class="navigation-items">
+        <li class="navigation-items">
+          <ul >
             <li>
               <a class="regular-text--medium" href="#" >About</a>
             </li>
@@ -42,6 +49,14 @@ import logo from "../assets/images/Caio.jpg"
   </div>
 </header>
 
+<script>
+  const button = document.querySelector(".burger-button button");
+  const menu = document.querySelector(".navigation-items");
+  button?.addEventListener("click", () => {
+    menu?.classList.toggle("open");
+  })
+</script>
+
 <style lang="scss">
 @use "../styles/style" as *;
 
@@ -57,6 +72,7 @@ header{
 
 ul{
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   gap: var(--fs-3);
@@ -71,6 +87,7 @@ a{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: calc(var(--fs-1) / 2);
     .logo{
       width: $logo-size;
       height: $logo-size;
@@ -80,10 +97,8 @@ a{
       
       border-radius: 50%;  
     }
-    span{
-      margin-left: .5em;
-      
-      background-color: #362942;
+    span{      
+      background-color: $purple-700;
       
       font-size: var(--fs-1);
       line-height: 1;
@@ -92,19 +107,53 @@ a{
   }  
 }
 
+.burger-button{
+  flex-shrink: 0;
+  
+  & button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    --line-size: .125rem;
+    gap: calc(var(--line-size) * 2);
 
+    --size: max(7vw, 2.25rem);
+    min-width: var(--size);
+    min-height: var(--size);  
+    padding: .25rem;  
+    border-radius: 50%;
+    
+    background-color: $white;
+    & div{
+      width: 70%;
+      height: var(--line-size);
+  
+      background-color: $purple-700;
 
+      &::before{
+        content: '';
 
-
+      }
+    }
+  }
+}
 
 .navigation-items{
   display: none;
+  &.open{
+    display: block;
+  }
 }
 
 @media (min-width: 40em){
   .logo__list-item{
     a{
+      display: inline-block;
+
       position: relative;
+
+      gap: 0;
       span{
         display: inline-block;
         
@@ -123,8 +172,12 @@ a{
     }
   }
 
+  .burger-button{
+    display: none;
+  }
+
   .navigation-items{
-    display: flex;
+    display: unset;
   }
   }
 

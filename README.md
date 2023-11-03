@@ -28,11 +28,19 @@
 - [ ] Structure (spacing, sizes, colors)
 
   - [x] Header
+    - [ ] HTML
+    - [ ] Mobile
+    - [ ] Desktop
   - [x] Footer
+    - [ ] HTML
+    - [ ] Mobile
+    - [ ] Desktop
 
 - [ ] Animation
 
-- [ ] Data fetching
+- [ ] Selection and scrollbar
+
+- [ ] Content (Data fetching?)
 
 ### Tests
 
