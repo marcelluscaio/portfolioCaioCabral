@@ -25,16 +25,20 @@
 
 ### Steps
 
-- [ ] Structure (spacing, sizes, colors)
+- [ ] Structure (spacing, sizes, colors), responsiveness
 
   - [x] Header
-    - [ ] HTML
-    - [ ] Mobile
-    - [ ] Desktop
+    - [x] HTML
+    - [x] Mobile
+    - [x] Desktop
   - [x] Footer
-    - [ ] HTML
-    - [ ] Mobile
-    - [ ] Desktop
+    - [x] HTML
+    - [x] Mobile
+    - [x] Desktop
+  - [ ] About me
+  - [ ] Projects
+  - [ ] Articles
+  - [ ] Contact
 
 - [ ] Animation
 
