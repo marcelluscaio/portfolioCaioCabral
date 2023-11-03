@@ -26,9 +26,10 @@
   }
 
   lottie-player{
-    $size: max(20vw, 300px);
+    $size: max(20vw, min(300px, 100%));
     width: $size;
     height: $size;
+    margin-inline: auto;
   }
 
   h1{
@@ -41,6 +42,7 @@
   p{
     max-width: 80ch;
     margin-inline: auto;
+    padding-inline: 4vw;
   }
 
   * + p {
@@ -55,6 +57,10 @@
       
       float: left;
       shape-outside: circle(50%);
+    }
+
+    p{
+      padding-inline: 0;
     }
   }
 
