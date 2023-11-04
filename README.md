@@ -42,7 +42,7 @@
     - [x] Mobile
     - [x] Desktop
   - [ ] Projects
-    - [ ] HTML
+    - [x] HTML
     - [ ] Mobile
     - [ ] Desktop
   - [ ] Articles
