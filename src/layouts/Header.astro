@@ -131,34 +131,9 @@ a{
       
       width: 70%;
       height: var(--line-size);
+      border-radius: calc(var(--line-size) / 2);
   
       background-color: $white;
-
-      &::before,
-      &::after{
-        content: '';
-
-        display: inline-block;
-
-        position: absolute;
-        
-
-        height: 100%;
-        aspect-ratio: 1;
-        border-radius: 50%;
-
-        background-color: inherit;
-      }
-
-      &::before{
-        left: 0;
-        transform: translateX(-50%);
-      }
-
-      &::after{
-        right: 0;
-        transform: translateX(50%);
-      }
     }
   }
 }
