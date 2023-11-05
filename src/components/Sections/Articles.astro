@@ -1,17 +1,20 @@
 <section>
-  <h2 class="title--small">My Articles</h2>
+  <h2 class="title--medium">My Articles</h2>
   <ul>
-    <li>
+    <li class="title--extra-small">
       <h3 class="title--extra-small">Article title</h3>
-      <p><span>Summary:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut repellendus dolores excepturi cumque quidem. Modi, numquam explicabo dolore debitis quae alias quibusdam facere ab ipsum voluptatibus eius tempore eveniet, officiis vel deleniti corrupti reprehenderit maxime voluptatum hic eum dolores voluptatem? Quaerat odio fugiat debitis commodi, doloribus in temporibus excepturi.</p>
+      <p class="regular-text--small"><span>Summary:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut repellendus dolores excepturi cumque quidem. Modi, numquam explicabo dolore debitis quae alias quibusdam facere ab ipsum voluptatibus eius tempore eveniet, officiis vel deleniti corrupti reprehenderit maxime voluptatum hic eum dolores voluptatem? Quaerat odio fugiat debitis commodi, doloribus in temporibus excepturi.</p>
+      <a class="regular-text--small--bold">Read more</a>
     </li>
-    <li>
-      <h3>Article title</h3>
-      <p><span>Summary:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut repellendus dolores excepturi cumque quidem. Modi, numquam explicabo dolore debitis quae alias quibusdam facere ab ipsum voluptatibus eius tempore eveniet, officiis vel deleniti corrupti reprehenderit maxime voluptatum hic eum dolores voluptatem? Quaerat odio fugiat debitis commodi, doloribus in temporibus excepturi.</p>
+    <li class="title--extra-small">
+      <h3 class="title--extra-small">Article title</h3>
+      <p class="regular-text--small"><span>Summary:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut repellendus dolores excepturi cumque quidem. Modi, numquam explicabo dolore debitis quae alias quibusdam facere ab ipsum voluptatibus eius tempore eveniet, officiis vel deleniti corrupti reprehenderit maxime voluptatum hic eum dolores voluptatem? Quaerat odio fugiat debitis commodi, doloribus in temporibus excepturi.</p>
+      <a class="regular-text--small--bold">Read more</a>
     </li>
-    <li>
-      <h3>Article title</h3>
-      <p><span>Summary:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut repellendus dolores excepturi cumque quidem. Modi, numquam explicabo dolore debitis quae alias quibusdam facere ab ipsum voluptatibus eius tempore eveniet, officiis vel deleniti corrupti reprehenderit maxime voluptatum hic eum dolores voluptatem? Quaerat odio fugiat debitis commodi, doloribus in temporibus excepturi.</p>
+    <li class="title--extra-small">
+      <h3 class="title--extra-small">Article title</h3>
+      <p class="regular-text--small"><span>Summary:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut repellendus dolores excepturi cumque quidem. Modi, numquam explicabo dolore debitis quae alias quibusdam facere ab ipsum voluptatibus eius tempore eveniet, officiis vel deleniti corrupti reprehenderit maxime voluptatum hic eum dolores voluptatem? Quaerat odio fugiat debitis commodi, doloribus in temporibus excepturi.</p>
+      <a class="regular-text--small--bold">Read more</a>
     </li>
   </ul>
   <a class="regular-text--small--bold" href="#">View all</a>
@@ -20,6 +23,70 @@
   @use "../../styles/style.scss" as *;
   
   section{
+    margin-bottom: var(--section-paddingBlock-regular);
+    
     color: $white;
+  }
+
+  h2{
+    margin-bottom: .5em;
+    text-align: center;
+  }
+
+  li{
+    max-width: 70ch;
+    margin-inline: auto;
+  }
+
+  li + li{
+    margin-top: 2em;
+  }
+
+
+  h3{
+    margin-bottom: .5em;
+  }
+
+  p{
+    margin-bottom: 1em;
+
+    span{
+      font-weight: 700;
+    }
+    &::first-letter{
+      font-size: var(--fs-3);      
+    }        
+  }
+
+  section a{
+    border-radius: 100vmax;
+
+    color: $purple-700;
+    line-height: 1;
+    text-align: center;
+  }
+
+  li a{
+    display: inline-block;
+
+    --padding: .5em;
+    padding: var(--padding) 1.5em;
+    padding-bottom: calc(var(--padding) + .25em);    
+    
+    background-color: $purple-300;    
+  }
+
+  section > a{
+    display: block;
+
+    max-width: 40ch;
+    --padding: .75em;
+    padding: var(--padding) 1.5em;
+    padding-bottom: calc(var(--padding) + .25em);
+
+    margin-top: 3em;
+    margin-inline: auto;
+    
+    background-color: $white;
   }
 </style>
