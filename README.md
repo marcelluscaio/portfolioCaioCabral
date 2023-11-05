@@ -45,7 +45,10 @@
     - [x] HTML
     - [x] Mobile
     - [x] Desktop
-  - [ ] Articles
+  - [x] Articles
+    - [x] HTML
+    - [x] Mobile
+    - [x] Desktop
   - [ ] Contact
 
 - [ ] Animation
