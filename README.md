@@ -2,6 +2,8 @@
 
 My portfolio for Le Repaire du Web Contest.
 
+Create with great attention to accessibility. Can be zoomed to 200% and default font-size can be 32px.
+
 ## Chores
 
 - [x] Start readme
