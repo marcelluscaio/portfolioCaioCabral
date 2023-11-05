@@ -41,10 +41,10 @@
     - [x] HTML
     - [x] Mobile
     - [x] Desktop
-  - [ ] Projects
+  - [x] Projects
     - [x] HTML
-    - [ ] Mobile
-    - [ ] Desktop
+    - [x] Mobile
+    - [x] Desktop
   - [ ] Articles
   - [ ] Contact
 
