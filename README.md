@@ -35,11 +35,16 @@
     - [x] HTML
     - [x] Mobile
     - [x] Desktop
+          (Pegar footer da https://brittanychiang.com/#about Ver ainda a versao 4 do site dela)
+          (usar footer para fazer uma transicao usando curvas com pseudo elemento e radial gradient)
   - [x] About me
     - [x] HTML
     - [x] Mobile
     - [x] Desktop
   - [ ] Projects
+    - [x] HTML
+    - [ ] Mobile
+    - [ ] Desktop
   - [ ] Articles
   - [ ] Contact
 
