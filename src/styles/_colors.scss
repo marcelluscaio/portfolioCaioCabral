@@ -9,3 +9,21 @@ $grafitti0: #302e31;
 $grafitti: #2b252e;
 $purple: #7c31a1;
 $blue: #262ea0;
+
+::selection {
+	background-color: $purple-300;
+	color: $purple-700;
+}
+
+::-webkit-scrollbar {
+	width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+	background: $purple-300;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $purple-700;
+	border-radius: 0.25rem;
+}
