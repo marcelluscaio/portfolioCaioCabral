@@ -196,8 +196,7 @@ h2{
 }
 
 article{
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--articlePadding);  
   
   padding: var(--articlePadding);
@@ -258,7 +257,7 @@ article{
   }
 
   & > a{
-    align-self: center;
+    justify-self: center;
     
     --padding: .75em;
     padding: var(--padding) 1.5em;
@@ -275,18 +274,37 @@ article{
 }
 
 @media (min-width: 40em){
-  section{
-    & > div{
-      grid-template-columns: repeat(auto-fit, minmax(max(48ch, 30%), 1fr));
+  article{
+    grid-template-columns: repeat(2, 1fr);
+    div{
+      h3{
+        text-align: center;
+      }
+    }
+    img{
+      align-self: stretch;
+      
+      aspect-ratio: 16/9;
+      min-height: 25vh;
+      max-height: 40vh;
+      /* Ideally 16/9, but not more than 40vh, or less than 25vh. If between 25vh and 40vh, and 16/9 is too short, will fill space available to fit text */
+      margin-top: calc(var(--fs-4) * 1.5);
+      /* h3 size + margin-bottom */
+    }
+    a{
+      grid-column: span 2;
     }
   }
 
-  article{
-    h3{
-      text-align: center;
+  article:nth-child(2n){
+    div{
+      order: 2
     }
     img{
-      aspect-ratio: 16/9;
+      order: 1;
+    }
+    a{
+      order: 3;
     }
   }
 }
