@@ -11,7 +11,12 @@
 	--section-paddingBlock-regular: var(--fs-5);
 	--section-paddingBlock-large: var(--fs-6);
 
+	--text-paddingInline-small: 2vw;
 	--text-paddingInline-regular: 4vw;
+	@media (min-width: 40em) {
+		--text-paddingInline-small: min(1vw, 1.5rem);
+		--text-paddingInline-regular: min(2vw, 3rem);
+	}
 }
 
 .container {
