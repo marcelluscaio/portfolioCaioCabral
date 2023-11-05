@@ -37,19 +37,25 @@ const { title } = Astro.props;
 
 <style lang="scss">
 	@use "../styles/style" as *; 
-	
+	@media (prefers-reduced-motion: no-preference) {
+		
+		html{
+			scroll-behavior: smooth;
+		}
+	}
+
 	body{
 		position: relative;
-
 	}
 	
 	.vertical-lign{
 		position: absolute;
-		inset: 0;
-		
+		inset: 0;		
 
 		pointer-events: none;
 	}
+
+	
 
 	main{
 		background-color: $purple-700;
@@ -77,8 +83,5 @@ const { title } = Astro.props;
 				padding-left: $logo-size;
 			}
 		}
-
-
-
 	}
 </style>
