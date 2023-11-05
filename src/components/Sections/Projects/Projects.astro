@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import screen from "../../../assets/images/screen.webp"
+---
+<section>
+  <h2 class="title--small">My Projects</h2>
+  <div>
+    <article>
+      <Image
+        src={screen}
+        alt="Screen image"
+      />
+      <div>
+        <h3 class="title--small title--extrasmall(criar)">Project title</h3>
+        <div>
+          <h4 class="regular-text--medium">Technologies:</h4>
+          <ul>
+            <li class="regular-text--medium">HTML</li>
+            <li class="regular-text--medium">CSS</li>
+          </ul>
+        </div>
+        <p class="regular-text--small">Resumo do projeto Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sed cupiditate odio fugiat porro minus voluptatibus dolore. Quam ab voluptates dolorum doloribus dolorem magni eius distinctio minus architecto odio labore culpa laudantium ducimus aspernatur ad consequatur, quos dicta dolores nam? Laborum at, suscipit voluptate consequatur pariatur voluptatum nam facilis! Sunt.</p>
+        <a class="regular-text--large" href="#">Learn more</a>
+      </div>
+    </article>
+  </div>
+  <a class="regular-text--large" href="#">View all</a>
+</section>
+
+<style lang="scss">
+@use "../../../styles/style.scss" as *;
+
+section{
+  padding: var(--text-paddingInline-regular);
+  border-radius: 4vw; /* (ajustar para desktope  para max-width) */
+
+  background-color: $white;
+
+  color: $purple-700;
+}
+
+h2{
+  margin-bottom: .5em
+}
+</style>
