@@ -30,14 +30,19 @@
 	font-family: "Playpen Sans";
 	line-height: 1.2;
 
+	&--extra-small {
+		@extend .title;
+		font-size: var(--fs-2);
+	}
+
 	&--small {
 		@extend .title;
-		font-size: var(--fs-4);
+		font-size: var(--fs-3);
 	}
 
 	&--medium {
 		@extend .title;
-		font-size: var(--fs-5);
+		font-size: var(--fs-4);
 	}
 
 	&--large {
@@ -53,15 +58,15 @@
 	&--small {
 		@extend .regular-text;
 		font-size: var(--fs-1);
+
+		&--bold {
+			@extend .regular-text--small;
+			font-weight: 700;
+		}
 	}
 
 	&--medium {
 		@extend .regular-text;
 		font-size: var(--fs-2);
-	}
-
-	&--large {
-		@extend .regular-text;
-		font-size: var(--fs-3);
 	}
 }
