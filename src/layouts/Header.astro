@@ -139,9 +139,27 @@ a{
 }
 
 .navigation-items{
-  display: none;
+  position: absolute;
+  background-color: $white;
+  color: $purple-700;
+  top: 0;
+  left: 0;
+  min-width: 70%;
+  padding: var(--fs-2) var(--fs-6) calc(var(--fs-6) * 1.5) var(--fs-4);
+  border-radius: 0 0 100vmax 0 ;
+
+  transform: translateX(-100%) translateY(-100%);
+
+
+  transition: transform .3s ease-in;
+
+  ul{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   &.open{
-    display: block;
+    transform: translateX(0) translateY(0);
   }
 }
 
@@ -176,9 +194,26 @@ a{
   }
 
   .navigation-items{
-    display: unset;
+    position: unset;
+    background-color: transparent;
+    color: unset;
+    top: unset;
+    left: unset;
+    min-width: unset;
+    padding: unset;
+    border-radius: 0 0 100vmax 0 ;
+
+    transform: none;
+
+
+    transition: none;
+    
+    ul{
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
-  }
+}
 
 
 </style>

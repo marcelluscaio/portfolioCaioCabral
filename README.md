@@ -53,6 +53,8 @@
 
 - [ ] Animation
 
+  - [ ] Menu
+
 - [ ] Selection and scrollbar
 
 - [ ] Content (Data fetching?)
