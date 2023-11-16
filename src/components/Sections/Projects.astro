@@ -139,36 +139,35 @@ import screen from "../../assets/images/screen.webp"
 <style lang="scss">
 @use "../../styles/style.scss" as *;
 
-.button{
-  
-}
-
 section{
-  --imgRadius: calc(1vw + .25rem);
+  --imgRadius: calc(.25vw + .25rem);
   --articlePadding: max(var(--text-paddingInline-small), var(--fs-1));
   --articleRadius: calc(var(--imgRadius) + var(--articlePadding));
-  --sectionPadding: max(var(--text-paddingInline-regular), var(--fs-1));
-  --sectionRadius: calc(var(--articleRadius) + var(--sectionPadding));
+  /* --sectionPadding: max(var(--text-paddingInline-regular), var(--fs-1));
+  --sectionRadius: calc(var(--articleRadius) + var(--sectionPadding)); */
   
-  padding: var(--sectionPadding);
-  margin-bottom: var(--section-paddingBlock-regular);
-  border-radius: var(--sectionRadius); 
+  /* padding: var(--sectionPadding); */
+  margin-bottom: max(var(--section-paddingBlock-regular), 8vw);
+  /* 
+  border-radius: var(--sectionRadius);  */
 
   /* background-color: $white; */
 
   color: $purple-700;
 
+
+  & > h2{
+    margin-bottom: .5em;
+
+    text-align: center;
+    color: $white;
+  }
+
   & > div{
     display: grid;
-    gap: var(--sectionPadding);
+    gap: var(--articlePadding);
 
-    margin-bottom: calc(var(--sectionPadding) * 2);
-
-    /* & > :nth-child(2n){
-      background-color: $purple-700$;
-
-      color: $purple-300;
-    } */
+    margin-bottom: calc(var(--articlePadding) * 2);
   }
 
   & > a{
@@ -191,11 +190,6 @@ section{
   }
 }
 
-h2{
-  margin-bottom: .5em;
-
-  text-align: center;
-}
 
 article{
   display: grid;
@@ -205,6 +199,8 @@ article{
   border-radius: var(--articleRadius);
 
   background-color: $purple-300;
+
+  
   & > div{
     h3{
       margin-bottom: .5em;
@@ -233,15 +229,17 @@ article{
           content: ".";
          } 
 
-         li:first-child::before{
-          content: "";
-         }
+        li:first-child::before{
+        content: "";
+        }
       }
     }
+
     p{
       span{
         font-weight: 700;
       }
+
       &::first-letter{
         font-size: var(--fs-3);      
       }
@@ -268,8 +266,9 @@ article{
     border-radius: 100vmax;
 
     background-color: $white;
+    background-color: $purple-700;
 
-    color: $purple-700;
+    color: $purple-300;
     line-height: 1;
     text-align: center;
   }
@@ -278,24 +277,32 @@ article{
 @media (min-width: 40em){
   article{
     grid-template-columns: repeat(2, 1fr);
-    div{
-      h3{
-        text-align: center;
-      }
+
+    border-radius: calc(var(--articleRadius) / 5) var(--articleRadius);
+
+  &:nth-child(2n){
+    border-radius:  var(--articleRadius)  calc(var(--articleRadius) / 5);
+  }
+
+  div{
+    h3{
+      text-align: center;
     }
-    img{
-      align-self: stretch;
-      
-      aspect-ratio: 16/9;
-      min-height: 25vh;
-      max-height: 40vh;
-      /* Ideally 16/9, but not more than 40vh, or less than 25vh. If between 25vh and 40vh, and 16/9 is too short, will fill space available to fit text */
-      margin-top: calc(var(--fs-4) * 1.5);
-      /* h3 size + margin-bottom */
-    }
-    a{
-      grid-column: span 2;
-    }
+  }
+  img{
+    align-self: stretch;
+    
+    aspect-ratio: 16/9;
+    min-height: 25vh;
+    max-height: 40vh;
+    /* Ideally 16/9, but not more than 40vh, or less than 25vh. If between 25vh and 40vh, and 16/9 is too short, will fill space available to fit text */
+    
+    /* margin-top: calc(var(--fs-4) * 1.5); */
+    /* h3 size + margin-bottom */
+  }
+  a{
+    grid-column: span 2;
+  }
   }
 
   article:nth-child(2n){
