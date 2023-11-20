@@ -1,1 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 
+const projects = await getCollection("projects");
+const projectsData = projects.map((project) => {
+	return {
+		slug: project.slug,
+		title: project.data.title,
+		description: project.data.description,
+	};
+});
+
+/* const { data } = project;
+const { title, description, githubUrl, projectUrl } = data; */
+---
+
+<Layout title="My projects">
+	<h1>My projects</h1>
+  {projectsData.map(project => {
+    return(
+      <h2>{project.title}</h2>
+      <p>{project.description}</p>
+      <a href={`projects/${project.slug}`}>Visit project</a>
+
+    )
+  })}
+</Layout>

@@ -1,6 +1,6 @@
 ---
-title: "teste 1"
-description: "Projeto de teste 1"
+title: "teste 2"
+description: "Projeto 2"
 githubUrl: "url de teste"
 projectUrl: "url de teste"
 isOnMain: true
