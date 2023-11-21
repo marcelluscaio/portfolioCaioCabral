@@ -1,15 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import screen from "../../assets/images/screen.webp";
-
 import projectsData from "./returnProjects";
+import ProjectCard from "../Elements/ProjectCard.astro";
 
 const projectsOnMain = projectsData.filter((project) => project.isOnMain);
-
-/* const images = projectsOnMain.map((project) => project.image1);
-images.forEach((image, index) => import ) 
-Preciso trazer nao a url mas a imagem em si
-*/
 ---
 
 <section id="projects">
@@ -35,7 +29,7 @@ Preciso trazer nao a url mas a imagem em si
 						</div>
 						<Image
 							src={project.image1}
-							alt="Screen Image"
+							alt={project.altImage1}
 						/>
 						<a
 							class="regular-text--small--bold"
@@ -47,7 +41,21 @@ Preciso trazer nao a url mas a imagem em si
 				);
 			})
 		}
-		<article>
+		{
+			projectsOnMain.map((project) => {
+				return (
+					<ProjectCard
+						title={project.title}
+						technologies={project.technologies}
+						description1={project.description1}
+						image={project.image1}
+						imageAltText={project.altImage1}
+						slug={project.slug}
+					/>
+				);
+			})
+		}
+		<!-- <article>
 			<div>
 				<h3 class="title--small">Project title</h3>
 				<div class="list regular-text--medium">
@@ -78,7 +86,7 @@ Preciso trazer nao a url mas a imagem em si
 				href="#"
 				>Learn more</a
 			>
-		</article>
+		</article> -->
 		<!-- 		<article>
 			<div>
 				<h3 class="title--small">Project title</h3>
@@ -242,7 +250,7 @@ Preciso trazer nao a url mas a imagem em si
 	</div>
 	<a
 		class="regular-text--small--bold"
-		href="#"
+		href="/projects"
 		>View all</a
 	>
 </section>

@@ -1,0 +1,45 @@
+---
+import { Image, type ImgAttributes } from "astro:assets";
+import type { ImageFunction } from "astro:content";
+
+type Props = {
+	title: string;
+	technologies: string[];
+	description1: string;
+	image: ImageMetadata;
+	imageAltText: string;
+	slug: string;
+};
+
+const { title, technologies, description1, image, imageAltText, slug } = Astro.props;
+---
+
+<article>
+	<div>
+		<h3 class="title--small">{title}</h3>
+		<div class="list regular-text--medium">
+			<h4 class="regular-text--medium">Technologies:</h4>
+			<ul class="regular-text--medium">
+				{
+					technologies.map((tech) => {
+						return <li class="regular-text--medium">{tech}</li>;
+					})
+				}
+			</ul>
+		</div>
+		<p class="regular-text--small">
+			<span>Summary:</span>
+			{description1}
+		</p>
+	</div>
+	<Image
+		src={image}
+		alt={imageAltText}
+	/>
+	<a
+		class="regular-text--small--bold"
+		href={`/projects/${slug}`}
+	>
+		Learn more
+	</a>
+</article>
