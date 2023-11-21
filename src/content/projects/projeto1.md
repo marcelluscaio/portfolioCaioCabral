@@ -1,9 +1,13 @@
 ---
-title: "teste"
-description: "Projeto de teste"
+title: "Teste 1"
+description1: "Projeto de teste 1"
+description2: ""
+image1: ""
+image2: ""
+technologies: ["HTML", "CSS"]
 githubUrl: "url de teste"
 projectUrl: "url de teste"
 isOnMain: true
 ---
 
-<p>Teste</p>
+<!-- adicionar resumo, alt para cada imagem -->
