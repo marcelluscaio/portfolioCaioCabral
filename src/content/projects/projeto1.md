@@ -2,7 +2,7 @@
 title: "Teste 1"
 description1: "Projeto de teste 1"
 description2: ""
-image1: ""
+image1: "../../assets/images/screen.webp"
 image2: ""
 technologies: ["HTML", "CSS"]
 githubUrl: "url de teste"

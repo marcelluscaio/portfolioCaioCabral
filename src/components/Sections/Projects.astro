@@ -24,7 +24,7 @@ Preciso trazer nao a url mas a imagem em si
 							<div class="list regular-text--medium">
 								<h4 class="regular-text--medium">Technologies:</h4>
 								<ul class="regular-text--medium">
-									{project.technologies.map((tech) => {
+									{project.technologies.map((tech: string) => {
 										return <li class="regular-text--medium">{tech}</li>;
 									})}
 								</ul>
