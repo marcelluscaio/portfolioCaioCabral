@@ -1,16 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import projectsData from "../../components/Sections/returnProjects";
+import Projects from "../../components/Sections/Projects.astro";
 ---
 
 <Layout title="My projects">
 	<h1>My projects</h1>
-  {projectsData.map(project => {
-    return(
-      <h2>{project.title}</h2>
-      <p>{project.description1}</p>
-      <a href={`projects/${project.slug}`}>Visit project</a>
-
-    )
-  })}
+	<Projects headingLevel="h2" />
 </Layout>
