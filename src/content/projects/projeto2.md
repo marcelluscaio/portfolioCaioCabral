@@ -1,7 +1,7 @@
 ---
-title: "Teste 1"
-description1: "Projeto de teste 1"
-description2: "Mais sobre projeto de teste 1"
+title: "Teste 2"
+description1: "Projeto de teste 2"
+description2: "Mais sobre projeto de teste 2"
 image1: "../../assets/images/screen.webp"
 altImage1: "Imagem"
 image2: "../../assets/images/screen.webp"

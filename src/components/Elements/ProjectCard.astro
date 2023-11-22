@@ -1,0 +1,189 @@
+---
+import { Image } from "astro:assets";
+
+type Props = {
+	title: string;
+	technologies: string[];
+	description1: string;
+	image: ImageMetadata;
+	imageAltText: string;
+	slug: string;
+	headingLevel: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+};
+
+const {
+	title,
+	technologies,
+	description1,
+	image,
+	imageAltText,
+	slug,
+	headingLevel,
+} = Astro.props;
+
+const Heading = headingLevel;
+---
+
+<article>
+	<div>
+		<Heading class="title--small">{title}</Heading>
+		<div class="list regular-text--medium">
+			<h4 class="regular-text--medium">Technologies:</h4>
+			<ul class="regular-text--medium">
+				{
+					technologies.map((tech) => {
+						return <li class="regular-text--medium">{tech}</li>;
+					})
+				}
+			</ul>
+		</div>
+		<p class="regular-text--small">
+			<span>Summary:</span>
+			{description1}
+		</p>
+	</div>
+	<Image
+		src={image}
+		alt={imageAltText}
+	/>
+	<a
+		class="regular-text--small--bold"
+		href={`/projects/${slug}`}
+	>
+		Learn more
+	</a>
+</article>
+
+<style lang="scss">
+	@use "../../styles/style.scss" as *;
+
+	article {
+		--imgRadius: calc(0.25vw + 0.25rem);
+		--articlePadding: max(var(--text-paddingInline-small), var(--fs-1));
+		--articleRadius: calc(var(--imgRadius) + var(--articlePadding));
+
+		display: grid;
+		gap: var(--articlePadding);
+
+		padding: var(--articlePadding);
+		border-radius: var(--articleRadius);
+
+		background-color: $purple-300;
+
+		& > div {
+			h3 {
+				margin-bottom: 0.5em;
+			}
+			.list {
+				display: flex;
+				flex-wrap: wrap;
+				column-gap: 0.5em;
+
+				margin-bottom: 0.5em;
+
+				ul {
+					display: flex;
+					flex-wrap: wrap;
+					column-gap: 0.25em;
+
+					li::after {
+						content: ",";
+					}
+
+					li:last-child::before {
+						content: " and ";
+					}
+
+					li:last-child::after {
+						content: ".";
+					}
+
+					li:first-child::before {
+						content: "";
+					}
+				}
+			}
+
+			p {
+				span {
+					font-weight: 700;
+				}
+
+				&::first-letter {
+					font-size: var(--fs-3);
+				}
+			}
+		}
+
+		img {
+			width: 100%;
+			aspect-ratio: 1 /2;
+			max-height: 50vh;
+			object-fit: cover;
+			object-position: top 0 left 10%;
+			border-radius: var(--imgRadius);
+		}
+
+		& > a {
+			justify-self: center;
+
+			--padding: 0.75em;
+			padding: var(--padding) 1.5em;
+			padding-bottom: calc(var(--padding) + 0.25em);
+			margin-top: 0.75em;
+			border-radius: 100vmax;
+
+			background-color: $white;
+			background-color: $purple-700;
+
+			color: $purple-300;
+			line-height: 1;
+			text-align: center;
+		}
+	}
+
+	@media (min-width: 40em) {
+		article {
+			grid-template-columns: repeat(2, 1fr);
+
+			border-radius: calc(var(--articleRadius) / 5) var(--articleRadius)
+				var(--articleRadius) var(--articleRadius);
+
+			div {
+				h3 {
+					text-align: center;
+				}
+			}
+			img {
+				align-self: stretch;
+
+				aspect-ratio: 16/9;
+				min-height: 25vh;
+				max-height: 40vh;
+				/* Ideally 16/9, but not more than 40vh, or less than 25vh. If between 25vh and 40vh, and 16/9 is too short, will fill space available to fit text */
+
+				/* margin-top: calc(var(--fs-4) * 1.5); */
+				/* h3 size + margin-bottom */
+			}
+
+			a {
+				grid-column: span 2;
+			}
+		}
+
+		article:nth-child(2n) {
+			border-radius: var(--articleRadius) calc(var(--articleRadius) / 5)
+				var(--articleRadius) var(--articleRadius);
+
+			div {
+				order: 2;
+			}
+			img {
+				order: 1;
+			}
+			a {
+				order: 3;
+			}
+		}
+	}
+</style>
