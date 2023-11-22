@@ -1,16 +1,30 @@
 ---
-import { Image } from "astro:assets";
 import projectsData from "./returnProjects";
 import ProjectCard from "../Elements/ProjectCard.astro";
 
-const projectsOnMain = projectsData.filter((project) => project.isOnMain);
+type Props = {
+	headingLevel: HeadingLevel;
+	filter?: boolean;
+};
+type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+const { headingLevel, filter = false } = Astro.props;
+
+const Heading = headingLevel;
+const parentLevelInteger = parseInt(headingLevel.slice(-1));
+//@ts-ignore
+const childHeading: HeadingLevel = `h${parentLevelInteger + 1}`;
+
+const projects = filter
+	? projectsData.filter((project) => project.isOnMain)
+	: projectsData;
 ---
 
 <section id="projects">
-	<h2 class="title--medium">My Projects</h2>
+	<Heading class="title--medium">My Projects</Heading>
 	<div>
 		{
-			projectsOnMain.map((project) => {
+			projects.map((project) => {
 				return (
 					<ProjectCard
 						title={project.title}
@@ -19,7 +33,7 @@ const projectsOnMain = projectsData.filter((project) => project.isOnMain);
 						image={project.image1}
 						imageAltText={project.altImage1}
 						slug={project.slug}
-						headingLevel="h3"
+						headingLevel={childHeading}
 					/>
 				);
 			})
