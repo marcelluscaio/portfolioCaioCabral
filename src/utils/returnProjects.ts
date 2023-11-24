@@ -6,7 +6,7 @@ const projectsData = projects.map((project) => {
 		slug: project.slug,
 		title: project.data.title,
 		description1: project.data.description1,
-		decription2: project.data.description2,
+		description2: project.data.description2,
 		image1: project.data.image1,
 		altImage1: project.data.altImage1,
 		image2: project.data.image2,

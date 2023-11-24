@@ -1,7 +1,6 @@
 ---
-/* import { getCollection } from "astro:content"; */
 import Layout from "../../layouts/Layout.astro";
-import projectsData from "../../components/Sections/returnProjects";
+import projectsData from "../../utils/returnProjects.ts";
 import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
@@ -9,25 +8,35 @@ export async function getStaticPaths() {
 		params: { slug: project.slug },
 		props: { project },
 	}));
-	/* const projects = await getCollection("projects"); */
-	/* return projects.map((project) => ({
-		params: { slug: project.slug },
-		props: { project },
-	})); */
 }
 
 const { project } = Astro.props;
-const { title, description1, image1, altImage1, githubUrl, projectUrl } = project;
-/* const { title, description, githubUrl, projectUrl } = data; */
+const {
+	title,
+	description1,
+	description2,
+	image1,
+	altImage1,
+	image2,
+	altImage2,
+	githubUrl,
+	projectUrl,
+	technologies,
+} = project;
 ---
 
 <Layout title="projects">
 	<h1>{title}</h1>
+	<p>{description1}</p>
 	<Image
 		src={image1}
 		alt={altImage1}
 	/>
-	<p>{description1}</p>
+	<p>{description2}</p>
+	<Image
+		src={image2}
+		alt={altImage2}
+	/>
 	<a href={projectUrl}>Visit project</a>
 	<a href={githubUrl}>See the code</a>
 </Layout>
