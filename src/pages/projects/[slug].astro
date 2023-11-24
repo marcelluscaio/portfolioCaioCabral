@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import TechnologiesList from "../../components/Elements/TechnologiesList.astro";
 import projectsData from "../../utils/returnProjects.ts";
+import { generateChildHeading } from "../../utils/generateChildHeading.ts";
 import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
@@ -23,20 +25,67 @@ const {
 	projectUrl,
 	technologies,
 } = project;
+
+const Heading = "h1";
+const childHeading = generateChildHeading(Heading);
 ---
 
 <Layout title="projects">
-	<h1>{title}</h1>
-	<p>{description1}</p>
-	<Image
-		src={image1}
-		alt={altImage1}
-	/>
-	<p>{description2}</p>
-	<Image
-		src={image2}
-		alt={altImage2}
-	/>
-	<a href={projectUrl}>Visit project</a>
-	<a href={githubUrl}>See the code</a>
+	<div class="color">
+		<Heading class="title--medium heading">{title}</Heading>
+		<p class="regular-text--small">{description1}</p>
+		<Image
+			src={image1}
+			alt={altImage1}
+		/>
+		<p class="regular-text--small">{description2}</p>
+		<Image
+			src={image2}
+			alt={altImage2}
+		/>
+		<TechnologiesList
+			technologies={technologies}
+			headingLevel={childHeading}
+		/>
+		<a
+			class="regular-text--small--bold"
+			href={projectUrl}
+			>Visit project</a
+		>
+		<a
+			class="regular-text--small--bold"
+			href={githubUrl}
+			>See the code</a
+		>
+	</div>
 </Layout>
+
+<style lang="scss">
+	@use "../../styles/style.scss" as *;
+	.color {
+		color: $white;
+	}
+
+	.heading {
+		text-align: center;
+	}
+
+	a {
+		--padding: 0.75em;
+
+		display: block;
+
+		max-width: 25ch;
+		padding: var(--padding) 1.5em;
+		padding-bottom: calc(var(--padding) + 0.25em);
+		margin-top: 0.75em;
+		margin-inline: auto;
+		border-radius: 100vmax;
+
+		background-color: $white;
+
+		color: $purple-700;
+		line-height: 1;
+		text-align: center;
+	}
+</style>
