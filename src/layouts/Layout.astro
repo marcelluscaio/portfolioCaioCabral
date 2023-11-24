@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import "../styles/reset.css";
 import "../styles/style.scss";
 import Header from "./Header.astro";
@@ -6,80 +8,105 @@ import Footer from "./Footer.astro";
 
 interface Props {
 	title: string;
+	transition?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, transition = false } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Astro description"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width"
+		/>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicon.svg"
+		/>
+		<meta
+			name="generator"
+			content={Astro.generator}
+		/>
 		<title>{title}</title>
+		{transition && <ViewTransitions />}
 	</head>
 	<body>
 		<div class="vertical-lign container"></div>
-		<Header/>
+		<Header />
 		<main>
 			<div class="container">
-
 				<slot />
 			</div>
-
 		</main>
-		<Footer/>
+		<Footer />
 	</body>
 </html>
 
 <style lang="scss">
-	@use "../styles/style" as *; 
+	@use "../styles/style" as *;
 	@media (prefers-reduced-motion: no-preference) {
-		
-		html{
+		html {
 			scroll-behavior: smooth;
 		}
 	}
 
-	body{
+	body {
 		position: relative;
 	}
-	
-	.vertical-lign{
+
+	.vertical-lign {
 		position: absolute;
-		inset: 0;		
+		inset: 0;
 
 		pointer-events: none;
 	}
 
-	
-
-	main{
+	main {
 		background-color: $purple-700;
 		padding-bottom: var(--section-paddingBlock-large);
 	}
 
-
 	@media (min-width: 40em) {
-		.vertical-lign{
+		.vertical-lign {
 			$line-size: 4px;
 			$start: calc(($logo-size/2) - ($line-size / 2));
 			$end: calc($start + $line-size);
-			$start-horizontal: calc((var(--section-paddingBlock-small) + $logo-size/4) - ($line-size / 4));
+			$start-horizontal: calc(
+				(var(--section-paddingBlock-small) + $logo-size/4) - ($line-size / 4)
+			);
 			$end-horizontal: calc($start-horizontal + ($line-size/2));
-			
-			background-image:
-			linear-gradient(to right, $purple-700 3vw, transparent calc(3vw + 1px)),
-			linear-gradient(to right, transparent calc($start - 1px), $white $start, $white $end, transparent calc($end + 1px)), 
-			linear-gradient(to bottom, transparent calc($start-horizontal - 1px), $white $start-horizontal, $white $end-horizontal, transparent calc($end-horizontal + 1px)),
-			;
+
+			background-image: linear-gradient(
+					to right,
+					$purple-700 3vw,
+					transparent calc(3vw + 1px)
+				),
+				linear-gradient(
+					to right,
+					transparent calc($start - 1px),
+					$white $start,
+					$white $end,
+					transparent calc($end + 1px)
+				),
+				linear-gradient(
+					to bottom,
+					transparent calc($start-horizontal - 1px),
+					$white $start-horizontal,
+					$white $end-horizontal,
+					transparent calc($end-horizontal + 1px)
+				);
 		}
 
-		main{
-			.container{
+		main {
+			.container {
 				padding-left: $logo-size;
 			}
 		}
