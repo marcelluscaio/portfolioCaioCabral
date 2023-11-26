@@ -1,5 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import type { HeadingLevel } from "../../types/headingLevel";
+import { generateChildHeading } from "../../utils/generateChildHeading";
+import TechnologiesList from "./TechnologiesList.astro";
 
 type Props = {
 	title: string;
@@ -8,7 +11,7 @@ type Props = {
 	image: ImageMetadata;
 	imageAltText: string;
 	slug: string;
-	headingLevel: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+	headingLevel: HeadingLevel;
 };
 
 const {
@@ -22,21 +25,16 @@ const {
 } = Astro.props;
 
 const Heading = headingLevel;
+const childHeading = generateChildHeading(headingLevel);
 ---
 
 <article>
 	<div>
-		<Heading class="title--small">{title}</Heading>
-		<div class="list regular-text--medium">
-			<h4 class="regular-text--medium">Technologies:</h4>
-			<ul class="regular-text--medium">
-				{
-					technologies.map((tech) => {
-						return <li class="regular-text--medium">{tech}</li>;
-					})
-				}
-			</ul>
-		</div>
+		<Heading class="title--small heading">{title}</Heading>
+		<TechnologiesList
+			technologies={technologies}
+			headingLevel={childHeading}
+		/>
 		<p class="regular-text--small">
 			<span>Summary:</span>
 			{description1}
@@ -71,37 +69,8 @@ const Heading = headingLevel;
 		background-color: $purple-300;
 
 		& > div {
-			h3 {
+			.heading {
 				margin-bottom: 0.5em;
-			}
-			.list {
-				display: flex;
-				flex-wrap: wrap;
-				column-gap: 0.5em;
-
-				margin-bottom: 0.5em;
-
-				ul {
-					display: flex;
-					flex-wrap: wrap;
-					column-gap: 0.25em;
-
-					li::after {
-						content: ",";
-					}
-
-					li:last-child::before {
-						content: " and ";
-					}
-
-					li:last-child::after {
-						content: ".";
-					}
-
-					li:first-child::before {
-						content: "";
-					}
-				}
 			}
 
 			p {
@@ -150,7 +119,7 @@ const Heading = headingLevel;
 				var(--articleRadius) var(--articleRadius);
 
 			div {
-				h3 {
+				.heading {
 					text-align: center;
 				}
 			}

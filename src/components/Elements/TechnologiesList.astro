@@ -1,0 +1,56 @@
+---
+import type { HeadingLevel } from "../../types/headingLevel";
+
+type Props = {
+	technologies: string[];
+	headingLevel: HeadingLevel;
+};
+
+const { technologies, headingLevel } = Astro.props;
+
+const Heading = headingLevel;
+---
+
+<div class="list regular-text--medium">
+	<Heading class="regular-text--medium">Technologies:</Heading>
+	<ul class="regular-text--medium">
+		{
+			technologies.map((tech) => {
+				return <li class="regular-text--medium">{tech}</li>;
+			})
+		}
+	</ul>
+</div>
+
+<style lang="scss">
+	@use "../../styles/style.scss" as *;
+	.list {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 0.5em;
+
+		margin-bottom: 0.5em;
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: 0.25em;
+
+			li::after {
+				content: ",";
+			}
+
+			li:last-child::before {
+				content: " and ";
+			}
+
+			li:last-child::after {
+				content: ".";
+			}
+
+			li:first-child::before {
+				content: "";
+			}
+		}
+	}
+</style>
