@@ -33,16 +33,20 @@ const childHeading = generateChildHeading(Heading);
 <Layout title="projects">
 	<div class="color">
 		<Heading class="title--medium heading">{title}</Heading>
-		<p class="regular-text--small">{description1}</p>
-		<Image
-			src={image1}
-			alt={altImage1}
-		/>
-		<p class="regular-text--small">{description2}</p>
-		<Image
-			src={image2}
-			alt={altImage2}
-		/>
+		<div class="flex">
+			<p class="regular-text--small">{description1}</p>
+			<Image
+				src={image1}
+				alt={altImage1}
+			/>
+		</div>
+		<div class="flex">
+			<Image
+				src={image2}
+				alt={altImage2}
+			/>
+			<p class="regular-text--small">{description2}</p>
+		</div>
 		<TechnologiesList
 			technologies={technologies}
 			headingLevel={childHeading}
@@ -87,5 +91,16 @@ const childHeading = generateChildHeading(Heading);
 		color: $purple-700;
 		line-height: 1;
 		text-align: center;
+	}
+
+	@media (min-width: 40em) {
+		.flex {
+			display: flex;
+			justify-content: space-between;
+
+			& > img {
+				width: 50%;
+			}
+		}
 	}
 </style>
