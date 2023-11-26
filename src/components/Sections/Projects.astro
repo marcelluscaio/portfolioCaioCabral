@@ -1,5 +1,6 @@
 ---
-import projectsData from "./returnProjects";
+import { generateChildHeading } from "../../utils/generateChildHeading.ts";
+import projectsData from "../../utils/returnProjects.ts";
 import ProjectCard from "../Elements/ProjectCard.astro";
 
 type Props = {
@@ -11,9 +12,7 @@ type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 const { headingLevel, filter = false } = Astro.props;
 
 const Heading = headingLevel;
-const parentLevelInteger = parseInt(headingLevel.slice(-1));
-//@ts-ignore
-const childHeading: HeadingLevel = `h${parentLevelInteger + 1}`;
+const childHeading = generateChildHeading(headingLevel);
 
 const projects = filter
 	? projectsData.filter((project) => project.isOnMain)
