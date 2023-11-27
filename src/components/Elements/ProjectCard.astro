@@ -30,7 +30,12 @@ const childHeading = generateChildHeading(headingLevel);
 
 <article>
 	<div>
-		<Heading class="title--small heading">{title}</Heading>
+		<Heading
+			class="title--small heading"
+			transition:name="heading"
+		>
+			{title}
+		</Heading>
 		<TechnologiesList
 			technologies={technologies}
 			headingLevel={childHeading}
