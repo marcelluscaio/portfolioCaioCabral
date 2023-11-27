@@ -32,13 +32,18 @@ const childHeading = generateChildHeading(Heading);
 
 <Layout title="projects">
 	<div class="color">
-		<Heading class="title--medium heading">{title}</Heading>
+		<Heading
+			class="title--medium heading"
+			transition:name="heading"
+		>
+			{title}
+		</Heading>
 		<div class="flex">
-			<p class="regular-text--small">{description1}</p>
 			<Image
 				src={image1}
 				alt={altImage1}
 			/>
+			<p class="regular-text--small">{description1}</p>
 		</div>
 		<div class="flex">
 			<Image
@@ -71,7 +76,17 @@ const childHeading = generateChildHeading(Heading);
 	}
 
 	.heading {
+		margin-bottom: 0.5em;
+
 		text-align: center;
+	}
+
+	.flex {
+		margin-bottom: var(--fs-1);
+	}
+
+	.flex p {
+		margin-top: 1em;
 	}
 
 	a {
@@ -97,8 +112,17 @@ const childHeading = generateChildHeading(Heading);
 		.flex {
 			display: flex;
 			justify-content: space-between;
+			margin-bottom: var(--fs-5);
 
-			& > img {
+			&:first-of-type {
+				flex-direction: row-reverse;
+			}
+
+			& p {
+				margin-bottom: 0;
+			}
+
+			& img {
 				width: 50%;
 			}
 		}
