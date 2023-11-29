@@ -53,16 +53,18 @@ const childHeading = generateChildHeading(Heading);
 			technologies={technologies}
 			headingLevel={childHeading}
 		/>
-		<a
-			class="regular-text--small--bold"
-			href={projectUrl}
-			>Visit project</a
-		>
-		<a
-			class="regular-text--small--bold"
-			href={githubUrl}
-			>See the code</a
-		>
+		<div class="buttons-container">
+			<a
+				class="regular-text--small--bold"
+				href={projectUrl}
+				>Visit project</a
+			>
+			<a
+				class="regular-text--small--bold"
+				href={githubUrl}
+				>See the code</a
+			>
+		</div>
 	</div>
 </Layout>
 
@@ -80,6 +82,10 @@ const childHeading = generateChildHeading(Heading);
 
 	.flex {
 		margin-bottom: var(--fs-1);
+	}
+
+	img {
+		border-radius: calc(0.25vw + 0.25rem);
 	}
 
 	.flex p {
@@ -109,6 +115,8 @@ const childHeading = generateChildHeading(Heading);
 		.flex {
 			display: flex;
 			justify-content: space-between;
+			gap: var(--fs-2);
+
 			margin-bottom: var(--fs-5);
 
 			&:first-of-type {
@@ -116,12 +124,23 @@ const childHeading = generateChildHeading(Heading);
 			}
 
 			& p {
-				margin-bottom: 0;
+				margin-top: 0;
+
+				width: 50%;
 			}
 
 			& img {
 				width: 50%;
 			}
+		}
+		.buttons-container {
+			display: flex;
+			justify-content: center;
+			gap: var(--fs-5);
+		}
+
+		a {
+			margin-inline: 0;
 		}
 	}
 </style>

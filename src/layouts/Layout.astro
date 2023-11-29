@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions, slide } from "astro:transitions";
+import { ViewTransitions, fade } from "astro:transitions";
 
 import "../styles/reset.css";
 import "../styles/style.scss";
@@ -38,10 +38,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
-	<body transition:animate="none">
+	<body transition:animate={fade({ duration: ".5s" })}>
 		<div class="vertical-lign container"></div>
 		<Header />
-		<main transition:animate={slide({ duration: ".5s" })}>
+		<main>
 			<div class="container">
 				<slot />
 			</div>

@@ -1,0 +1,65 @@
+---
+type Props = {
+	href: string;
+	backgroundColor: "pink" | "purple" | "white";
+	color: "pink" | "purple" | "white";
+	size?: "big";
+};
+
+const { href, backgroundColor, color, size = "" } = Astro.props;
+---
+
+<a
+	class=`button regular-text--small--bold bg-${backgroundColor} text-${color} ${size}`
+	href={href}
+>
+	<slot />
+</a>
+
+<style lang="scss">
+	@use "../../styles/style.scss" as *;
+	a.button {
+		display: block;
+
+		--padding: 0.75em;
+		padding: var(--padding) calc(var(--padding) * 2);
+		padding-bottom: calc(var(--padding) + 0.25em);
+		margin-top: 0.75em;
+
+		border-radius: 100vmax;
+
+		color: $purple-700;
+		line-height: 1;
+		text-align: center;
+	}
+
+	a.bg-pink {
+		background-color: $purple-300;
+	}
+
+	a.bg-purple {
+		background-color: $purple-700;
+	}
+
+	a.bg-white {
+		background-color: $white;
+	}
+
+	a.text-pink {
+		color: $purple-300;
+	}
+
+	a.text-purple {
+		color: $purple-700;
+	}
+
+	a.text-white {
+		color: $white;
+	}
+
+	a.big {
+		max-width: 25ch;
+		margin-inline: auto;
+		margin-top: 3em;
+	}
+</style>
