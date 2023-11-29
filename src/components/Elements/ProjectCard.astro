@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
+import { slide } from "astro:transitions";
 import type { HeadingLevel } from "../../types/headingLevel";
 import { generateChildHeading } from "../../utils/generateChildHeading";
 import TechnologiesList from "./TechnologiesList.astro";
+import Button from "./Button.astro";
 
 type Props = {
 	title: string;
@@ -28,8 +30,8 @@ const Heading = headingLevel;
 const childHeading = generateChildHeading(headingLevel);
 ---
 
-<article>
-	<div>
+<article transition:animate={slide({ duration: ".5s" })}>
+	<div class="text">
 		<Heading class="title--small heading">
 			{title}
 		</Heading>
@@ -46,12 +48,21 @@ const childHeading = generateChildHeading(headingLevel);
 		src={image}
 		alt={imageAltText}
 	/>
-	<a
+	<!-- <a
 		class="regular-text--small--bold"
 		href={`/projects/${slug}`}
 	>
 		Learn more
-	</a>
+	</a> -->
+	<div class="button">
+		<Button
+			href={`/projects/${slug}`}
+			backgroundColor="purple"
+			color="pink"
+		>
+			Learn more
+		</Button>
+	</div>
 </article>
 
 <style lang="scss">
@@ -70,7 +81,7 @@ const childHeading = generateChildHeading(headingLevel);
 
 		background-color: $purple-300;
 
-		& > div {
+		.text {
 			.heading {
 				margin-bottom: 0.5em;
 			}
@@ -95,21 +106,8 @@ const childHeading = generateChildHeading(headingLevel);
 			border-radius: var(--imgRadius);
 		}
 
-		& > a {
+		.button {
 			justify-self: center;
-
-			--padding: 0.75em;
-			padding: var(--padding) 1.5em;
-			padding-bottom: calc(var(--padding) + 0.25em);
-			margin-top: 0.75em;
-			border-radius: 100vmax;
-
-			background-color: $white;
-			background-color: $purple-700;
-
-			color: $purple-300;
-			line-height: 1;
-			text-align: center;
 		}
 	}
 
@@ -120,7 +118,7 @@ const childHeading = generateChildHeading(headingLevel);
 			border-radius: calc(var(--articleRadius) / 5) var(--articleRadius)
 				var(--articleRadius) var(--articleRadius);
 
-			div {
+			.text {
 				.heading {
 					text-align: center;
 				}
@@ -137,7 +135,7 @@ const childHeading = generateChildHeading(headingLevel);
 				/* h3 size + margin-bottom */
 			}
 
-			a {
+			.button {
 				grid-column: span 2;
 			}
 		}
@@ -146,13 +144,15 @@ const childHeading = generateChildHeading(headingLevel);
 			border-radius: var(--articleRadius) calc(var(--articleRadius) / 5)
 				var(--articleRadius) var(--articleRadius);
 
-			div {
+			.text {
 				order: 2;
 			}
+
 			img {
 				order: 1;
 			}
-			a {
+
+			.button {
 				order: 3;
 			}
 		}
