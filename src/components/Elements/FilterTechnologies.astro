@@ -1,0 +1,63 @@
+---
+import { techList } from "../../types/technologies";
+import Button from "./Button.astro";
+import type { HeadingLevel } from "../../types/headingLevel";
+
+type Props = {
+	headingLevel: HeadingLevel;
+};
+
+const { headingLevel } = Astro.props;
+const Heading = headingLevel;
+---
+
+<div
+	class="filter"
+	id="filter"
+>
+	<Heading class="regular-text--medium heading">Filter by technology:</Heading>
+	<ul>
+		{
+			techList.map((tech) => {
+				return (
+					<li>
+						<Button
+							href={`/projects/tech/${tech.toLowerCase()}`}
+							backgroundColor="pink"
+							color="purple"
+						>
+							{tech}
+						</Button>
+					</li>
+				);
+			})
+		}
+	</ul>
+</div>
+
+<style lang="scss">
+	@use "../../styles/style.scss" as *;
+	.filter {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--fs-1);
+
+		margin-bottom: var(--fs-3);
+
+		color: $white;
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--fs-1);
+
+		color: $white;
+	}
+
+	.heading {
+		text-wrap: nowrap;
+	}
+</style>

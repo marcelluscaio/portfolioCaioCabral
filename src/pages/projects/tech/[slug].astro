@@ -1,0 +1,25 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { techList } from "../../../types/technologies";
+import Projects from "../../../components/Sections/Projects.astro";
+
+export async function getStaticPaths() {
+	return techList.map((tech) => ({
+		params: { slug: tech.toLowerCase() },
+		props: { tech },
+	}));
+}
+
+const { tech } = Astro.props;
+---
+
+<Layout title="projects">
+	<Projects
+		headingLevel="h1"
+		filter={tech}
+	/>
+</Layout>
+
+<style lang="scss">
+	@use "../../../styles/style.scss" as *;
+</style>
