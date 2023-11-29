@@ -1,5 +1,6 @@
 ---
 import type { HeadingLevel } from "../../types/headingLevel";
+import type { ProjectFilters } from "../../types/projectFilters";
 import { generateChildHeading } from "../../utils/generateChildHeading.ts";
 import projectsData from "../../utils/returnProjects.ts";
 import ProjectCard from "../Elements/ProjectCard.astro";
@@ -8,20 +9,36 @@ import FilterTechnologies from "../Elements/FilterTechnologies.astro";
 
 type Props = {
 	headingLevel: HeadingLevel;
-	filter?: boolean;
+	filter?: ProjectFilters;
 };
 
-const { headingLevel, filter = false } = Astro.props;
+const { headingLevel, filter = "" } = Astro.props;
+
+function filterProjects(filterString: ProjectFilters) {
+	if (filterString === "isOnMain") {
+		return projectsData.filter((project) => project.isOnMain);
+	} else {
+		return projectsData.filter((project) =>
+			//@ts-ignore
+			project.technologies.includes(filterString),
+		);
+	}
+}
 
 const Heading = headingLevel;
 const childHeading = generateChildHeading(headingLevel);
 
-const projects = filter
-	? projectsData.filter((project) => project.isOnMain)
-	: projectsData;
+const projects = filter ? filterProjects(filter) : projectsData;
 
 const path = Astro.url.pathname;
 const isHome = path === "/";
+
+/* let otherFilter = "";
+if (otherFilter !== "") {
+	projects ===
+		//@ts-ignore
+		projects.filter((project) => project.technologies.includes(otherFilter));
+} */
 ---
 
 <section id="projects">

@@ -11,7 +11,10 @@ const { headingLevel } = Astro.props;
 const Heading = headingLevel;
 ---
 
-<div class="filter">
+<div
+	class="filter"
+	id="filter"
+>
 	<Heading class="regular-text--medium heading">Filter by technology:</Heading>
 	<ul>
 		{
@@ -19,10 +22,9 @@ const Heading = headingLevel;
 				return (
 					<li>
 						<Button
-							href=""
+							href={`/projects/tech/${tech.toLowerCase()}`}
 							backgroundColor="pink"
 							color="purple"
-							tag="button"
 						>
 							{tech}
 						</Button>
