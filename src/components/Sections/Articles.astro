@@ -18,6 +18,9 @@ const childHeading = generateChildHeading(headingLevel);
 const articles = filter
 	? articlesData.filter((article) => article.isOnMain)
 	: articlesData;
+
+const path = Astro.url.pathname;
+const isHome = path === "/";
 ---
 
 <section id="articles">
@@ -36,14 +39,18 @@ const articles = filter
 			})
 		}
 	</ul>
-	<Button
-		href="/articles"
-		size="big"
-		color="purple"
-		backgroundColor="white"
-	>
-		View all
-	</Button>
+	{
+		isHome && (
+			<Button
+				href="/articles"
+				size="big"
+				color="purple"
+				backgroundColor="white"
+			>
+				View all
+			</Button>
+		)
+	}
 </section>
 
 <style lang="scss">

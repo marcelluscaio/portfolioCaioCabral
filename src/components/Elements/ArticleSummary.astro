@@ -10,10 +10,12 @@ type Props = {
 };
 
 const { title, description, url, headingLevel } = Astro.props;
+
+const Heading = headingLevel;
 ---
 
 <li class="title--extra-small">
-	<h3 class="title--extra-small">{title}</h3>
+	<Heading class="title--extra-small">{title}</Heading>
 	<p class="regular-text--small">
 		<span>Summary:</span>
 		{description}

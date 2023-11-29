@@ -1,29 +1,47 @@
 ---
+type ButtonTag = "a" | "button";
+
 type Props = {
 	href: string;
 	backgroundColor: "pink" | "purple" | "white";
 	color: "pink" | "purple" | "white";
 	size?: "big";
+	tag?: ButtonTag;
 };
 
-const { href, backgroundColor, color, size = "" } = Astro.props;
+const { href, backgroundColor, color, size = "", tag = "a" } = Astro.props;
+
+const TagName = tag;
 ---
 
-<a
+<!-- class=`button regular-text--small--bold bg-${backgroundColor} text-${color} ${size}` -->
+<TagName
+	class:list={[
+		"button",
+		"regular-text--small--bold",
+		`bg-${backgroundColor}`,
+		`text-${color}`,
+		`${size}`,
+	]}
+	href={href}
+>
+	<slot />
+</TagName>
+<!-- <a
 	class=`button regular-text--small--bold bg-${backgroundColor} text-${color} ${size}`
 	href={href}
 >
 	<slot />
-</a>
+</a> -->
 
 <style lang="scss">
 	@use "../../styles/style.scss" as *;
-	a.button {
+	.button {
 		display: block;
 
 		--padding: 0.75em;
 		padding: var(--padding) calc(var(--padding) * 2);
-		padding-bottom: calc(var(--padding) + 0.25em);
+		padding-bottom: calc(var(--padding) + 0.125em);
 		margin-top: 0.75em;
 
 		border-radius: 100vmax;
@@ -33,31 +51,37 @@ const { href, backgroundColor, color, size = "" } = Astro.props;
 		text-align: center;
 	}
 
-	a.bg-pink {
+	button.button {
+		margin-top: 0;
+
+		padding-bottom: var(--padding);
+	}
+
+	.bg-pink {
 		background-color: $purple-300;
 	}
 
-	a.bg-purple {
+	.bg-purple {
 		background-color: $purple-700;
 	}
 
-	a.bg-white {
+	.bg-white {
 		background-color: $white;
 	}
 
-	a.text-pink {
+	.text-pink {
 		color: $purple-300;
 	}
 
-	a.text-purple {
+	.text-purple {
 		color: $purple-700;
 	}
 
-	a.text-white {
+	.text-white {
 		color: $white;
 	}
 
-	a.big {
+	.big {
 		max-width: 25ch;
 		margin-inline: auto;
 		margin-top: 3em;
