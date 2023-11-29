@@ -6,7 +6,17 @@ image1: "../../assets/images/screen.webp"
 altImage1: "Imagem"
 image2: "../../assets/images/screen.webp"
 altImage2: "Imagem"
-technologies: ["HTML", "CSS"]
+technologies:
+  [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Astro",
+    "WordPress",
+    "Next.js",
+    "Express",
+    "Node.js",
+  ]
 githubUrl: "url de teste"
 projectUrl: "url de teste"
 isOnMain: true
