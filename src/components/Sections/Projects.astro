@@ -19,7 +19,8 @@ const projects = filter
 	? projectsData.filter((project) => project.isOnMain)
 	: projectsData;
 
-console.log(Astro.params);
+const path = Astro.url.pathname;
+const isHome = path === "/";
 ---
 
 <section id="projects">
@@ -41,14 +42,18 @@ console.log(Astro.params);
 			})
 		}
 	</div>
-	<Button
-		href="/projects"
-		backgroundColor="white"
-		color="purple"
-		size="big"
-	>
-		View all
-	</Button>
+	{
+		isHome && (
+			<Button
+				href="/projects"
+				backgroundColor="white"
+				color="purple"
+				size="big"
+			>
+				View all
+			</Button>
+		)
+	}
 </section>
 
 <style lang="scss">
