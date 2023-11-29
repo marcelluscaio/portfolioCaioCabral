@@ -18,6 +18,8 @@ const childHeading = generateChildHeading(headingLevel);
 const projects = filter
 	? projectsData.filter((project) => project.isOnMain)
 	: projectsData;
+
+console.log(Astro.params);
 ---
 
 <section id="projects">
