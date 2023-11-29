@@ -1,13 +1,14 @@
 ---
+import type { HeadingLevel } from "../../types/headingLevel";
 import { generateChildHeading } from "../../utils/generateChildHeading.ts";
 import projectsData from "../../utils/returnProjects.ts";
 import ProjectCard from "../Elements/ProjectCard.astro";
+import Button from "../Elements/Button.astro";
 
 type Props = {
 	headingLevel: HeadingLevel;
 	filter?: boolean;
 };
-type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 const { headingLevel, filter = false } = Astro.props;
 
@@ -21,7 +22,7 @@ const projects = filter
 
 <section id="projects">
 	<Heading class="title--medium heading">My Projects</Heading>
-	<div>
+	<div class="cards-container">
 		{
 			projects.map((project) => {
 				return (
@@ -38,11 +39,14 @@ const projects = filter
 			})
 		}
 	</div>
-	<a
-		class="regular-text--small--bold"
+	<Button
 		href="/projects"
-		>View all</a
+		backgroundColor="white"
+		color="purple"
+		size="big"
 	>
+		View all
+	</Button>
 </section>
 
 <style lang="scss">
@@ -60,30 +64,11 @@ const projects = filter
 			color: $white;
 		}
 
-		& > div {
+		& > .cards-container {
 			display: grid;
 			gap: calc(var(--section-paddingBlock-regular) / 2);
 
 			margin-bottom: calc(var(--section-paddingBlock-regular) / 2);
-		}
-
-		& > a {
-			--padding: 0.75em;
-
-			display: block;
-
-			max-width: 25ch;
-			padding: var(--padding) 1.5em;
-			padding-bottom: calc(var(--padding) + 0.25em);
-			margin-top: 0.75em;
-			margin-inline: auto;
-			border-radius: 100vmax;
-
-			background-color: $white;
-
-			color: $purple-700;
-			line-height: 1;
-			text-align: center;
 		}
 	}
 </style>

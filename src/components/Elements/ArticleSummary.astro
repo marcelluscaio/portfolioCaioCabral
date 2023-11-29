@@ -1,0 +1,58 @@
+---
+import type { HeadingLevel } from "../../types/headingLevel";
+import Button from "./Button.astro";
+
+type Props = {
+	title: string;
+	description: string;
+	url: string;
+	headingLevel: HeadingLevel;
+};
+
+const { title, description, url, headingLevel } = Astro.props;
+---
+
+<li class="title--extra-small">
+	<h3 class="title--extra-small">{title}</h3>
+	<p class="regular-text--small">
+		<span>Summary:</span>
+		{description}
+	</p>
+	<Button
+		href={url}
+		color="purple"
+		backgroundColor="pink"
+	>
+		Read more
+	</Button>
+</li>
+
+<style lang="scss">
+	@use "../../styles/style.scss" as *;
+	li {
+		display: grid;
+		justify-items: start;
+
+		max-width: 70ch;
+		margin-inline: auto;
+	}
+
+	li + li {
+		margin-top: 2em;
+	}
+
+	h3 {
+		margin-bottom: 0.5em;
+	}
+
+	p {
+		margin-bottom: 1em;
+
+		span {
+			font-weight: 700;
+		}
+		&::first-letter {
+			font-size: var(--fs-3);
+		}
+	}
+</style>
