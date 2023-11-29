@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { techList } from "../types/technologies";
 
 const projectsCollection = defineCollection({
 	type: "content",
@@ -11,7 +12,7 @@ const projectsCollection = defineCollection({
 			altImage1: z.string(),
 			image2: image(),
 			altImage2: z.string(),
-			technologies: z.array(z.string()),
+			technologies: z.array(z.enum(techList)),
 			githubUrl: z.string(),
 			projectUrl: z.string(),
 			isOnMain: z.boolean().optional(),

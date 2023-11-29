@@ -1,0 +1,43 @@
+---
+import { techList } from "../../types/technologies";
+import Button from "./Button.astro";
+import type { HeadingLevel } from "../../types/headingLevel";
+
+type Props = {
+	headingLevel: HeadingLevel;
+};
+
+const { headingLevel } = Astro.props;
+const Heading = headingLevel;
+---
+
+<ul>
+	<Heading class="regular-text--medium">Filter by technology:</Heading>
+	{
+		techList.map((tech) => {
+			return (
+				<li>
+					<Button
+						href=""
+						backgroundColor="pink"
+						color="purple"
+						tag="button"
+					>
+						{tech}
+					</Button>
+				</li>
+			);
+		})
+	}
+</ul>
+
+<style lang="scss">
+	@use "../../styles/style.scss" as *;
+	ul {
+		display: flex;
+		align-items: center;
+		margin-bottom: var(--fs-3);
+
+		color: $white;
+	}
+</style>

@@ -4,6 +4,7 @@ import { generateChildHeading } from "../../utils/generateChildHeading.ts";
 import projectsData from "../../utils/returnProjects.ts";
 import ProjectCard from "../Elements/ProjectCard.astro";
 import Button from "../Elements/Button.astro";
+import FilterTechnologies from "../Elements/FilterTechnologies.astro";
 
 type Props = {
 	headingLevel: HeadingLevel;
@@ -25,6 +26,7 @@ const isHome = path === "/";
 
 <section id="projects">
 	<Heading class="title--medium heading">My Projects</Heading>
+	{!isHome && <FilterTechnologies headingLevel={childHeading} />}
 	<div class="cards-container">
 		{
 			projects.map((project) => {
