@@ -2,7 +2,6 @@
 	font-family: "Exo 2";
 	src: url("/exo-2-v21-latin-regular.woff2") format("woff2");
 	font-style: normal;
-	/* font-weight: 400; */
 	font-display: swap;
 }
 
@@ -10,7 +9,6 @@
 	font-family: "Architects Daughter";
 	src: url("/architects-daughter-v18-latin-regular.woff2") format("woff2");
 	font-style: normal;
-	/* font-weight: 400; */
 	font-display: swap;
 }
 
@@ -32,17 +30,20 @@
 
 	&--extra-small {
 		@extend .title;
-		font-size: var(--fs-2);
+		/* font-size: var(--fs-2); */
+		font-size: var(--fs-3);
 	}
 
 	&--small {
 		@extend .title;
-		font-size: var(--fs-3);
+		/* font-size: var(--fs-3); */
+		font-size: var(--fs-4);
 	}
 
 	&--medium {
 		@extend .title;
-		font-size: var(--fs-4);
+		/* font-size: var(--fs-4); */
+		font-size: var(--fs-5);
 	}
 
 	&--large {
