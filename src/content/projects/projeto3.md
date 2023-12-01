@@ -11,5 +11,3 @@ githubUrl: "url de teste"
 projectUrl: "url de teste"
 isOnMain: false
 ---
-
-<!-- adicionar resumo, alt para cada imagem -->

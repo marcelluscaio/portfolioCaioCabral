@@ -28,6 +28,7 @@ const articlesCollection = defineCollection({
 		isOnMain: z.boolean().optional(),
 	}),
 });
+
 export const collections = {
 	projects: projectsCollection,
 	articles: articlesCollection,

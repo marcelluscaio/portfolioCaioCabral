@@ -14,7 +14,6 @@ const { href, backgroundColor, color, size = "", tag = "a" } = Astro.props;
 const TagName = tag;
 ---
 
-<!-- class=`button regular-text--small--bold bg-${backgroundColor} text-${color} ${size}` -->
 <TagName
 	class:list={[
 		"button",
@@ -27,12 +26,6 @@ const TagName = tag;
 >
 	<slot />
 </TagName>
-<!-- <a
-	class=`button regular-text--small--bold bg-${backgroundColor} text-${color} ${size}`
-	href={href}
->
-	<slot />
-</a> -->
 
 <style lang="scss">
 	@use "../../styles/style.scss" as *;
