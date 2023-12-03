@@ -1,15 +1,16 @@
 ---
 /* import animation from "/lottieAnimations/PXSgcT8sNU.json"  */
 ---
+
 <section id="about">
-  <h1 class="title--small">
-    Hi, my name is 
-    <span class="accent-color">Caio Marcellus</span>
-    <span class="title--large block">
-      Welcome to my 
-      <span>
-        portfolio
-        <!-- <svg 
+	<h1 class="title--small">
+		Hi, my name is
+		<span class="accent-color">Caio Marcellus</span>
+		<span class="title--large block">
+			Welcome to my
+			<span>
+				portfolio
+				<!-- <svg 
           width="234" 
           height="27" 
           viewBox="0 0 234 27" 
@@ -23,96 +24,111 @@
             stroke-linecap="round"
           />
         </svg> -->
-        <!-- width="981" height="479" -->
-        <!-- <svg preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 981 479" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<!-- width="981" height="479" -->
+				<!-- <svg preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 981 479" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M7.71465 358.314C95.7118 578.371 941.269 464.831 977.05 260.575C1033.44 -61.3175 264.097 -32.0546 154.442 73.2922C150.38 77.1939 151.045 84.4012 154.442 82.8514C451.603 -52.7337 992.854 32.9095 947.002 260.575C894.125 434.007 27.8116 558.082 24.2994 319.296C21.9869 162.074 409.848 13.9859 690.425 61.1967C698.815 59.2458 692.21 50.7152 683.01 48.9061C382.142 -1.47829 -58.694 148.36 7.71465 358.314Z" fill="#E3CAFA"/>
   </svg> -->
-      </span>
-    </span>
-  </h1>
-  <lottie-player 
-    src="/lottieAnimations/GqCqYx1atO.json" 
-    background="transparent"  
-    speed="1"  
-    loop
-    autoplay
-  >
-  </lottie-player>
-  <p class="regular-text--small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit harum veniam omnis expedita provident quaerat mollitia minus earum? Nobis maiores possimus assumenda a eum quos, atque porro fugit necessitatibus quod omnis dolor odit! </p>
-  <p class="regular-text--small">Quo mollitia quod sequi obcaecati nobis similique et cum, sint ex voluptatibus ut illum pariatur, quaerat nam. Architecto doloremque doloribus officia? Exercitationem repellat sapiente quidem fugiat! Corporis unde ducimus debitis aspernatur hic cum esse quas officia dolore tenetur? Placeat tempora nihil exercitationem! Quod in est nihil commodi sed ipsam, totam voluptatibus tenetur accusamus, eum possimus cupiditate dignissimos itaque consequatur provident laborum natus tempora! Voluptate in autem nesciunt.</p>
-  <p class="regular-text--small">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit harum veniam omnis expedita provident quaerat mollitia minus earum? Nobis maiores possimus assumenda a eum quos, atque porro fugit necessitatibus quod omnis dolor odit! </p>
+			</span>
+		</span>
+	</h1>
+	<lottie-player
+		src="/lottieAnimations/GqCqYx1atO.json"
+		background="transparent"
+		speed="1"
+		loop
+		autoplay
+	>
+	</lottie-player>
+	<p class="regular-text--small">
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit harum veniam
+		omnis expedita provident quaerat mollitia minus earum? Nobis maiores possimus
+		assumenda a eum quos, atque porro fugit necessitatibus quod omnis dolor odit!
+	</p>
+	<p class="regular-text--small">
+		Quo mollitia quod sequi obcaecati nobis similique et cum, sint ex voluptatibus ut
+		illum pariatur, quaerat nam. Architecto doloremque doloribus officia?
+		Exercitationem repellat sapiente quidem fugiat! Corporis unde ducimus debitis
+		aspernatur hic cum esse quas officia dolore tenetur? Placeat tempora nihil
+		exercitationem! Quod in est nihil commodi sed ipsam, totam voluptatibus tenetur
+		accusamus, eum possimus cupiditate dignissimos itaque consequatur provident
+		laborum natus tempora! Voluptate in autem nesciunt.
+	</p>
+	<p class="regular-text--small">
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit harum veniam
+		omnis expedita provident quaerat mollitia minus earum? Nobis maiores possimus
+		assumenda a eum quos, atque porro fugit necessitatibus quod omnis dolor odit!
+	</p>
 </section>
 
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script
+	src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+></script>
 
 <style lang="scss">
-  @use "../../styles/style.scss" as *;
+	@use "../../styles/style.scss" as *;
 
-  section{
-    margin-bottom: max(var(--section-paddingBlock-regular), 8vw);
-    /* Added vw unit because of lottie */
-    
-    color: $white;
+	section {
+		margin-bottom: max(var(--section-paddingBlock-regular), 8vw);
+		/* Added vw unit because of lottie */
 
-  }
+		color: $white;
+	}
 
-  lottie-player{
-    $size: max(20vw, min(300px, 100%));
-    width: $size;
-    height: $size;
-    margin-inline: auto;
-  }
+	lottie-player {
+		$size: max(20vw, min(300px, 100%));
+		width: $size;
+		height: $size;
+		margin-inline: auto;
+	}
 
-  h1{
-    text-align: center;
-    & .block{
-      display: block;
-      margin-top: .25em;
-    }
-    & .accent-color{
-      color: $purple-300;
-    }
-  }
+	h1 {
+		text-align: center;
+		& .block {
+			display: block;
+			margin-top: 0.25em;
+		}
+		& .accent-color {
+			color: $purple-300;
+		}
+	}
 
-  span{
-    /* display: inline-block; */
+	span {
+		/* display: inline-block; */
 
-    /* position: relative;
+		/* position: relative;
     & svg{
       font-size: inherit;
       position: absolute;
       bottom: -.5em;
       width: 150%;
     } */
-  }
+	}
 
-  p{
-    max-width: 80ch;
-    margin-inline: auto;
-    padding-inline: var(--text-paddingInline-regular);
-  }
+	p {
+		max-width: 80ch;
+		margin-inline: auto;
+		padding-inline: 4vw;
+	}
 
-  * + p {
-    margin-top: .75em;
-  }
+	* + p {
+		margin-top: 0.75em;
+	}
 
-  @media (min-width: 40em){
-    lottie-player{
+	@media (min-width: 40em) {
+		lottie-player {
+			margin-right: 4vw;
+			margin-bottom: 4vw;
 
-      margin-right: 4vw;
-      margin-bottom: 4vw;
-      
-      float: left;
-      shape-outside: circle(50%);
-    }
+			float: left;
+			shape-outside: circle(50%);
+		}
 
-    p{
-      padding-inline: 0;
-    }
+		p {
+			padding-inline: 0;
+		}
 
-    h1 .block{
-      margin-top: 0;
-    }
-  }
-
+		h1 .block {
+			margin-top: 0;
+		}
+	}
 </style>
