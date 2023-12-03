@@ -84,8 +84,6 @@ import logo from "../assets/images/Caio.jpg";
 
 		padding-block: var(--section-paddingBlock-small);
 
-		/* background-color: $bg-color; */
-
 		color: $white;
 	}
 
@@ -93,7 +91,6 @@ import logo from "../assets/images/Caio.jpg";
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
 		gap: var(--fs-3);
 	}
 
@@ -117,7 +114,7 @@ import logo from "../assets/images/Caio.jpg";
 				border-radius: 50%;
 			}
 			span {
-				background-color: $purple-700;
+				background-color: $bg-color;
 
 				font-size: var(--fs-1);
 				line-height: 1;
@@ -140,14 +137,12 @@ import logo from "../assets/images/Caio.jpg";
 			--size: max(7vw, 2.25rem);
 			min-width: var(--size);
 			min-height: var(--size);
-			padding: 0.25rem;
+			padding: calc(var(--line-size) * 2);
 			border-radius: 50%;
 
 			background-color: transparent;
 
 			& div {
-				position: relative;
-
 				width: 70%;
 				height: var(--line-size);
 				border-radius: calc(var(--line-size) / 2);
@@ -187,8 +182,6 @@ import logo from "../assets/images/Caio.jpg";
 				display: inline-block;
 
 				position: relative;
-
-				gap: 0;
 				span {
 					display: inline-block;
 
