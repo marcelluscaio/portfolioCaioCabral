@@ -1,4 +1,11 @@
-const techList = ["HTML", "CSS", "JavaScript", "Astro", "WordPress"] as const;
+const techList = [
+	"HTML",
+	"CSS",
+	"JavaScript",
+	"Astro",
+	"WordPress",
+	"TypeScript",
+] as const;
 
 type Technologies = (typeof techList)[number];
 

@@ -48,12 +48,6 @@ const childHeading = generateChildHeading(headingLevel);
 		src={image}
 		alt={imageAltText}
 	/>
-	<!-- <a
-		class="regular-text--small--bold"
-		href={`/projects/${slug}`}
-	>
-		Learn more
-	</a> -->
 	<div class="button">
 		<Button
 			href={`/projects/${slug}`}
@@ -81,6 +75,10 @@ const childHeading = generateChildHeading(headingLevel);
 
 		background-color: $purple-300;
 
+		& *::selection {
+			background-color: $purple-700;
+			color: $purple-300;
+		}
 		.text {
 			.heading {
 				margin-bottom: 0.5em;
