@@ -106,16 +106,13 @@
 			<h3 class="title--small">Did you see it all?</h3>
 			<ul>
 				<li class="regular-text--medium">
-					<a href="#"> About</a>
+					<a href="/#about"> About</a>
 				</li>
 				<li class="regular-text--medium">
-					<a href="#"> Projects</a>
+					<a href="/#projects"> Projects</a>
 				</li>
 				<li class="regular-text--medium">
-					<a href="#"> Articles</a>
-				</li>
-				<li class="regular-text--medium">
-					<a href="#"> Talk to me</a>
+					<a href="/#articles"> Articles</a>
 				</li>
 			</ul>
 		</nav>
@@ -209,6 +206,9 @@
 	nav li + li {
 		margin-top: 0.75em;
 	}
+	nav li a {
+		display: inline-block;
+	}
 
 	.copyright {
 		text-align: center;
@@ -235,7 +235,9 @@
 
 		nav li {
 			position: relative;
+
 			text-wrap: nowrap;
+			line-height: 1;
 		}
 
 		nav li::after {
@@ -244,9 +246,9 @@
 			display: block;
 
 			position: absolute;
-			top: 50%;
+			bottom: 25%;
 			right: calc(var(--gap) / -2);
-			transform: translate(50%, 0);
+			transform: translate(50%, 0%);
 
 			width: 0.5rem;
 			height: 0.5rem;
