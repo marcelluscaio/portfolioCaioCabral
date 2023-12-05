@@ -7,9 +7,17 @@ type Props = {
 	color: "pink" | "purple" | "white";
 	size?: "big";
 	tag?: ButtonTag;
+	newPage?: boolean;
 };
 
-const { href, backgroundColor, color, size = "", tag = "a" } = Astro.props;
+const {
+	href,
+	backgroundColor,
+	color,
+	size = "",
+	tag = "a",
+	newPage = false,
+} = Astro.props;
 
 const TagName = tag;
 ---
@@ -23,6 +31,7 @@ const TagName = tag;
 		`${size}`,
 	]}
 	href={href}
+	target={newPage === true ? "_blank" : "_self"}
 >
 	<slot />
 </TagName>
