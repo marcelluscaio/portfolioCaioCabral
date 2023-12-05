@@ -16,7 +16,7 @@ $blue: #262ea0;
 }
 
 ::-webkit-scrollbar {
-	width: 1rem;
+	width: min(1rem, 2vw);
 }
 
 ::-webkit-scrollbar-track {

@@ -10,4 +10,5 @@ technologies: ["HTML", "CSS"]
 githubUrl: "url de teste"
 projectUrl: "url de teste"
 isOnMain: false
+date: 06/10/2023
 ---

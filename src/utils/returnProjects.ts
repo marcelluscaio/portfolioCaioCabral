@@ -15,6 +15,7 @@ const projectsData = projects.map((project) => {
 		githubUrl: project.data.githubUrl,
 		projectUrl: project.data.projectUrl,
 		isOnMain: project.data.isOnMain,
+		date: project.data.date,
 	};
 });
 

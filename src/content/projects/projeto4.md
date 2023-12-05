@@ -10,4 +10,5 @@ technologies: ["HTML", "CSS", "JavaScript", "Astro", "WordPress"]
 githubUrl: "url de teste"
 projectUrl: "url de teste"
 isOnMain: true
+date: 06/10/2023
 ---

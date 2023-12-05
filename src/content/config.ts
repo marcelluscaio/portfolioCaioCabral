@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { techList } from "../types/technologies";
+import { stringToDate } from "../utils/stringToDate";
 
 const projectsCollection = defineCollection({
 	type: "content",
@@ -16,6 +17,7 @@ const projectsCollection = defineCollection({
 			githubUrl: z.string(),
 			projectUrl: z.string(),
 			isOnMain: z.boolean().optional(),
+			date: z.string().transform((str) => stringToDate(str)),
 		}),
 });
 
