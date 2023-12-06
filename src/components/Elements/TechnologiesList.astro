@@ -9,9 +9,11 @@ type Props = {
 const { technologies, headingLevel } = Astro.props;
 
 const Heading = headingLevel;
+
+const isInCard = ["h3", "h4"].includes(headingLevel) ? "isInCard" : "";
 ---
 
-<div class="list regular-text--medium">
+<div class=`list regular-text--medium ${isInCard}`>
 	<Heading class="regular-text--medium">Technologies:</Heading>
 	<ul class="regular-text--medium">
 		{
@@ -56,5 +58,10 @@ const Heading = headingLevel;
 				content: "";
 			}
 		}
+	}
+
+	.isInCard *::selection {
+		background-color: $purple-700;
+		color: $purple-300;
 	}
 </style>

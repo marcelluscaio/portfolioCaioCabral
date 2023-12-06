@@ -1,7 +1,7 @@
 ---
-import { techList } from "../../../types/technologies";
-import Layout from "../../../layouts/Layout.astro";
-import Projects from "../../../components/Sections/Projects.astro";
+import { techList } from "../../types/technologies";
+import Layout from "../../layouts/Layout.astro";
+import Projects from "../../components/Sections/Projects.astro";
 
 export async function getStaticPaths() {
 	return techList.map((tech) => ({
@@ -19,7 +19,3 @@ const { tech } = Astro.props;
 		filter={tech}
 	/>
 </Layout>
-
-<style lang="scss">
-	@use "../../../styles/style.scss" as *;
-</style>
