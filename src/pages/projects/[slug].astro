@@ -1,9 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import TechnologiesList from "../../components/Elements/TechnologiesList.astro";
 import projectsData from "../../utils/returnProjects.ts";
 import { generateChildHeading } from "../../utils/generateChildHeading.ts";
 import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import TechnologiesList from "../../components/Elements/TechnologiesList.astro";
+import Button from "../../components/Elements/Button.astro";
 
 export async function getStaticPaths() {
 	return projectsData.map((project) => ({
@@ -24,10 +25,13 @@ const {
 	githubUrl,
 	projectUrl,
 	technologies,
+	date,
 } = project;
 
 const Heading = "h1";
 const childHeading = generateChildHeading(Heading);
+
+/* console.log(date); */
 ---
 
 <Layout title="projects">
@@ -54,16 +58,20 @@ const childHeading = generateChildHeading(Heading);
 			headingLevel={childHeading}
 		/>
 		<div class="buttons-container">
-			<a
-				class="regular-text--small--bold"
+			<Button
 				href={projectUrl}
-				>Visit project</a
+				backgroundColor="white"
+				color="purple"
 			>
-			<a
-				class="regular-text--small--bold"
+				Visit project
+			</Button>
+			<Button
 				href={githubUrl}
-				>See the code</a
+				backgroundColor="white"
+				color="purple"
 			>
+				Check code
+			</Button>
 		</div>
 	</div>
 </Layout>
@@ -92,25 +100,6 @@ const childHeading = generateChildHeading(Heading);
 		margin-top: 1em;
 	}
 
-	a {
-		--padding: 0.75em;
-
-		display: block;
-
-		max-width: 25ch;
-		padding: var(--padding) 1.5em;
-		padding-bottom: calc(var(--padding) + 0.25em);
-		margin-top: 0.75em;
-		margin-inline: auto;
-		border-radius: 100vmax;
-
-		background-color: $white;
-
-		color: $purple-700;
-		line-height: 1;
-		text-align: center;
-	}
-
 	@media (min-width: 40em) {
 		.flex {
 			display: flex;
@@ -137,10 +126,6 @@ const childHeading = generateChildHeading(Heading);
 			display: flex;
 			justify-content: center;
 			gap: var(--fs-5);
-		}
-
-		a {
-			margin-inline: 0;
 		}
 	}
 </style>

@@ -17,12 +17,21 @@ const Heading = headingLevel;
 >
 	<Heading class="regular-text--medium heading">Filter by technology:</Heading>
 	<ul>
+		<li>
+			<Button
+				href={`/projects`}
+				backgroundColor="pink"
+				color="purple"
+			>
+				All
+			</Button>
+		</li>
 		{
 			techList.map((tech) => {
 				return (
 					<li>
 						<Button
-							href={`/projects/tech/${tech.toLowerCase()}`}
+							href={`/projects/tech=${tech.toLowerCase()}`}
 							backgroundColor="pink"
 							color="purple"
 						>
