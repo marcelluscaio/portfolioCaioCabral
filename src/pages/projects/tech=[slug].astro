@@ -1,11 +1,12 @@
 ---
 import { techList } from "../../types/technologies";
+import { normalizeString } from "../../utils/normalizeString.ts";
 import Layout from "../../layouts/Layout.astro";
 import Projects from "../../components/Sections/Projects.astro";
 
 export async function getStaticPaths() {
 	return techList.map((tech) => ({
-		params: { slug: tech.toLowerCase() },
+		params: { slug: normalizeString(tech) },
 		props: { tech },
 	}));
 }
