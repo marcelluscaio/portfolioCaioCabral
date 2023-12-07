@@ -20,10 +20,10 @@ lessonsLearned: "On this project I learned a lot about Next.js and the app route
 
 I also learned a lot about TypeScript and how it can help us catch errors during development, as well as making a lot of progress on my Sass skills.
 "
-image1: "../../assets/images/screen.webp"
-altImage1: "Imagem"
-image2: "../../assets/images/screen.webp"
-altImage2: "Imagem"
+image1: "../../assets/images/OPEA1.png"
+altImage1: "Project screen for desktop"
+image2: "../../assets/images/OPEA2.png"
+altImage2: "Mockup of project screen on phone"
 technologies: ["Next.js", "React", "Sass", "TypeScript"]
 githubUrl: "https://github.com/marcelluscaio/CadastroEmpresa"
 projectUrl: "https://caiocabral-cadastroempresa.vercel.app/"
