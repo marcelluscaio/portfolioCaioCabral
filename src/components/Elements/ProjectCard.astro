@@ -9,22 +9,15 @@ import Button from "./Button.astro";
 type Props = {
 	title: string;
 	technologies: string[];
-	description1: string;
+	summary: string;
 	image: ImageMetadata;
 	imageAltText: string;
 	slug: string;
 	headingLevel: HeadingLevel;
 };
 
-const {
-	title,
-	technologies,
-	description1,
-	image,
-	imageAltText,
-	slug,
-	headingLevel,
-} = Astro.props;
+const { title, technologies, summary, image, imageAltText, slug, headingLevel } =
+	Astro.props;
 
 const Heading = headingLevel;
 const childHeading = generateChildHeading(headingLevel);
@@ -41,7 +34,7 @@ const childHeading = generateChildHeading(headingLevel);
 		/>
 		<p class="regular-text--small">
 			<span>Summary:</span>
-			{description1}
+			{summary}
 		</p>
 	</div>
 	<Image

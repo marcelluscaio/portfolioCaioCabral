@@ -1,8 +1,12 @@
 ---
 title: "Company registration"
-description1: "Company registration allows to read, create, update and delete companies from the database.
+summary: "Company registration allows to read, create, update and delete companies from the database.
 To create a company, you should click on 'Adicionar Empresas'. To filtrate, you should use the field 'Buscar Empresas'. To update or delete, you should clock on the company on the list. All actions have hover and focus highlights to helop the user. The modal content varies according to context."
-description2: "Mais sobre projeto de teste 1"
+purpose: "Why I built this project, and what I did here"
+technologyChoice: "I used X, Y, Z technologies because..."
+highlights: "Things I would like you to pay attention to"
+challenges: "Things that were particularly hard"
+lessonsLearned: "What I learned from the project"
 image1: "../../assets/images/screen.webp"
 altImage1: "Imagem"
 image2: "../../assets/images/screen.webp"
@@ -14,5 +18,14 @@ isOnMain: true
 date: 17/10/2023
 ---
 
-O projeto deve ter: resumo/apresentacao, motivacao, escolha de tecnologias, desafios enfrentados, pontos de atencao, conclusao/aprendizados
+O projeto deve ter:
+resumo/apresentacao (Descricao geral com as features interessantes),
+motivacao (Por que fiz,e onde participei),
+
+escolha de tecnologias,  
+pontos de atencao,
+
+desafios enfrentados,
+conclusao/aprendizados
+
 Incluir imagens e textos alternativos, Desenvolver texto descritivo. No futuro, tirar referências à OPEA
