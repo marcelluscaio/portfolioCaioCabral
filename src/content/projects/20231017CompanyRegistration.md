@@ -14,4 +14,5 @@ isOnMain: true
 date: 17/10/2023
 ---
 
+O projeto deve ter: resumo/apresentacao, motivacao, escolha de tecnologias, desafios enfrentados, pontos de atencao, conclusao/aprendizados
 Incluir imagens e textos alternativos, Desenvolver texto descritivo. No futuro, tirar referências à OPEA
