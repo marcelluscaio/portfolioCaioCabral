@@ -1,6 +1,7 @@
 ---
 import type { HeadingLevel } from "../../types/headingLevel";
 import { techList } from "../../types/technologies";
+import { normalizeString } from "../../utils/normalizeString";
 import Button from "./Button.astro";
 
 type Props = {
@@ -31,7 +32,7 @@ const Heading = headingLevel;
 				return (
 					<li>
 						<Button
-							href={`/projects/tech=${tech.toLowerCase()}`}
+							href={`/projects/tech=${normalizeString(tech)}`}
 							backgroundColor="pink"
 							color="purple"
 						>
