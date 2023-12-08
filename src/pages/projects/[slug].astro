@@ -1,6 +1,7 @@
 ---
 import projectsData from "../../utils/returnProjects.ts";
 import { generateChildHeading } from "../../utils/generateChildHeading.ts";
+import { generateParagraphs } from "../../utils/generateParagraphs.ts";
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import TechnologiesList from "../../components/Elements/TechnologiesList.astro";
@@ -16,8 +17,12 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const {
 	title,
-	description1,
-	description2,
+	summary,
+	purpose,
+	technologyChoice,
+	highlights,
+	challenges,
+	lessonsLearned,
 	image1,
 	altImage1,
 	image2,
@@ -31,32 +36,85 @@ const {
 const Heading = "h1";
 const childHeading = generateChildHeading(Heading);
 
-/* console.log(date); */
+const texts = [
+	summary,
+	purpose,
+	technologyChoice,
+	highlights,
+	challenges,
+	lessonsLearned,
+];
+const [
+	summaryArray,
+	purposeArray,
+	technologyChoiceArray,
+	highlightsArray,
+	challengesArray,
+	lessonsArray,
+] = texts.map((text) => generateParagraphs(text));
 ---
 
-<Layout title="projects">
+<Layout title="My projects">
 	<div class="color">
 		<Heading class="title--medium heading">
 			{title}
 		</Heading>
+		<TechnologiesList
+			technologies={technologies}
+			headingLevel={childHeading}
+		/>
 		<div class="flex">
 			<Image
 				src={image1}
 				alt={altImage1}
 			/>
-			<p class="regular-text--small">{description1}</p>
+			<div class="text-container">
+				{
+					summaryArray.map((text: string) => (
+						<p class="regular-text--medium">{text}</p>
+					))
+				}
+				{
+					purposeArray.map((text: string) => (
+						<p class="regular-text--medium">{text}</p>
+					))
+				}
+			</div>
+		</div>
+		<div class="flex">
+			<div class="text-container">
+				{
+					technologyChoiceArray.map((text: string) => {
+						return <p class="regular-text--medium">{text}</p>;
+					})
+				}
+			</div>
+			<div class="text-container">
+				{
+					highlightsArray.map((text: string) => {
+						return <p class="regular-text--medium">{text}</p>;
+					})
+				}
+			</div>
 		</div>
 		<div class="flex">
 			<Image
 				src={image2}
 				alt={altImage2}
 			/>
-			<p class="regular-text--small">{description2}</p>
+			<div class="text-container">
+				{
+					challengesArray.map((text: string) => {
+						return <p class="regular-text--medium">{text}</p>;
+					})
+				}
+				{
+					lessonsArray.map((text: string) => {
+						return <p class="regular-text--medium">{text}</p>;
+					})
+				}
+			</div>
 		</div>
-		<TechnologiesList
-			technologies={technologies}
-			headingLevel={childHeading}
-		/>
 		<div class="buttons-container">
 			<Button
 				href={projectUrl}
@@ -89,39 +147,56 @@ const childHeading = generateChildHeading(Heading);
 	}
 
 	.flex {
-		margin-bottom: var(--fs-1);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-1);
+
+		margin-bottom: var(--spacing-1);
+	}
+
+	:nth-child(1 of .flex) {
+		flex-direction: column-reverse;
+
+		margin-top: var(--spacing-3);
 	}
 
 	img {
+		max-height: min(80vh, 38rem);
+		object-fit: contain;
+
 		border-radius: calc(0.25vw + 0.25rem);
 	}
 
-	.flex p {
-		margin-top: 1em;
+	p + p {
+		margin-top: var(--spacing-1);
 	}
 
-	@media (min-width: 40em) {
-		.flex {
+	@media (min-width: 70em) {
+		.flex.flex {
 			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
 			justify-content: space-between;
-			gap: var(--fs-2);
+			--gap: var(--spacing-4);
+			gap: var(--gap);
 
-			margin-bottom: var(--fs-5);
+			margin-bottom: calc(var(--spacing-5) * 2);
 
-			&:first-of-type {
+			&:nth-child(1 of .flex) {
 				flex-direction: row-reverse;
 			}
 
-			& p {
-				margin-top: 0;
-
-				width: 50%;
+			&:nth-child(3 of .flex) {
+				margin-bottom: var(--spacing-1);
 			}
 
-			& img {
-				width: 50%;
+			& > * {
+				width: calc(50% - (var(--gap) / 2));
+				flex-grow: 0;
+				flex-shrink: 1;
 			}
 		}
+
 		.buttons-container {
 			display: flex;
 			justify-content: center;
