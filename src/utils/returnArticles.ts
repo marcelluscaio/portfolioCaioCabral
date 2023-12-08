@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 
 const articles = await getCollection("articles");
-const articlesData = articles.map((article) => {
+const articlesData = articles.reverse().map((article) => {
 	return {
 		slug: article.slug,
 		title: article.data.title,
