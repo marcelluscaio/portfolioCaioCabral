@@ -1,3 +1,7 @@
+---
+const url = Astro.url;
+---
+
 <footer id="footer">
 	<div class="container">
 		<div class="author">
@@ -116,10 +120,16 @@
 				</li>
 			</ul>
 		</nav>
-		<span class="copyright regular-text--small"
-			>© Copyright 2023 - Created by <a href="#">Caio Marcellus</a> using Astro and
-			Sass.</span
-		>
+		<span class="copyright regular-text--small">
+			© Copyright 2023 - Created by
+			<a href={url}>Caio Marcellus</a>
+			 using
+			<span>Astro</span>
+			 and
+			<span>Sass</span>
+			 . Check the code on the
+			<a href="https://github.com/marcelluscaio/portfolioCaioCabral">repository</a>.
+		</span>
 	</div>
 </footer>
 
@@ -212,6 +222,13 @@
 
 	.copyright {
 		text-align: center;
+	}
+	span > a {
+		font-weight: 600;
+	}
+
+	span > span {
+		font-weight: 600;
 	}
 
 	@media (min-width: 60em) {
