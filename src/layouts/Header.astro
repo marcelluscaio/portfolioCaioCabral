@@ -81,6 +81,13 @@ import logo from "../assets/images/Caio.jpg";
 			? setTabindex(links, "0")
 			: setTabindex(links, "-1");
 
+		window.addEventListener("resize", () => {
+			button?.parentElement &&
+			getComputedStyle(button.parentElement).display === "none"
+				? setTabindex(links, "0")
+				: setTabindex(links, "-1");
+		});
+
 		button?.addEventListener("click", () => {
 			openMenu(menu, links);
 		});
