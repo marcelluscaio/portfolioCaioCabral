@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+
 import logo from "../assets/images/Caio.jpg";
 ---
 
@@ -22,7 +23,10 @@ import logo from "../assets/images/Caio.jpg";
 					</a>
 				</li>
 				<li class="burger-button">
-					<button>
+					<button
+						aria-label="hamburger button"
+						aria-expanded="false"
+					>
 						<div></div>
 						<div></div>
 						<div></div>
@@ -66,10 +70,20 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	const button = document.querySelector(".burger-button button");
-	const menu = document.querySelector(".navigation-items");
-	button?.addEventListener("click", () => {
-		menu?.classList.toggle("open");
+	import { openMenu, setTabindex } from "../utils/openMenu.ts";
+	document.addEventListener("astro:page-load", () => {
+		const button = document.querySelector(".burger-button button");
+		const menu = document.querySelector(".navigation-items");
+		const links = menu?.querySelectorAll("a");
+
+		button?.parentElement &&
+		getComputedStyle(button.parentElement).display === "none"
+			? setTabindex(links, "0")
+			: setTabindex(links, "-1");
+
+		button?.addEventListener("click", () => {
+			openMenu(menu, links);
+		});
 	});
 </script>
 
