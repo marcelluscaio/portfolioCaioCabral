@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+
 import logo from "../assets/images/Caio.jpg";
 ---
 
@@ -22,7 +23,10 @@ import logo from "../assets/images/Caio.jpg";
 					</a>
 				</li>
 				<li class="burger-button">
-					<button>
+					<button
+						aria-label="hamburger button"
+						aria-expanded="false"
+					>
 						<div></div>
 						<div></div>
 						<div></div>
@@ -66,10 +70,27 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	const button = document.querySelector(".burger-button button");
-	const menu = document.querySelector(".navigation-items");
-	button?.addEventListener("click", () => {
-		menu?.classList.toggle("open");
+	import { openMenu, setTabindex } from "../utils/openMenu.ts";
+	document.addEventListener("astro:page-load", () => {
+		const button = document.querySelector(".burger-button button");
+		const menu = document.querySelector(".navigation-items");
+		const links = menu?.querySelectorAll("a");
+
+		button?.parentElement &&
+		getComputedStyle(button.parentElement).display === "none"
+			? setTabindex(links, "0")
+			: setTabindex(links, "-1");
+
+		window.addEventListener("resize", () => {
+			button?.parentElement &&
+			getComputedStyle(button.parentElement).display === "none"
+				? setTabindex(links, "0")
+				: setTabindex(links, "-1");
+		});
+
+		button?.addEventListener("click", () => {
+			openMenu(menu, links);
+		});
 	});
 </script>
 
@@ -156,13 +177,11 @@ import logo from "../assets/images/Caio.jpg";
 		position: absolute;
 		background-color: $white;
 		color: $purple-700;
-		top: 0;
-		left: 0;
+		bottom: 100%;
+		right: 100%;
 		min-width: 70%;
 		padding: var(--fs-2) var(--fs-6) calc(var(--fs-6) * 1.5) var(--fs-4);
 		border-radius: 0 0 100vmax 0;
-
-		transform: translateX(-100%) translateY(-100%);
 
 		transition: transform 0.3s ease-in;
 
@@ -172,7 +191,7 @@ import logo from "../assets/images/Caio.jpg";
 		}
 
 		&.open {
-			transform: translateX(0) translateY(0);
+			transform: translateX(100%) translateY(100%);
 		}
 	}
 

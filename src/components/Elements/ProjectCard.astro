@@ -92,7 +92,7 @@ const childHeading = generateChildHeading(headingLevel);
 		img {
 			width: 100%;
 			aspect-ratio: 1 /2;
-			max-height: 50vh;
+			max-height: max(50vh, 15rem);
 			object-fit: cover;
 			object-position: top 0 left 10%;
 			border-radius: var(--imgRadius);
@@ -120,7 +120,7 @@ const childHeading = generateChildHeading(headingLevel);
 
 				aspect-ratio: 16/9;
 				min-height: 25vh;
-				max-height: 40vh;
+				max-height: max(40vh, 20rem);
 				/* Ideally 16/9, but not more than 40vh, or less than 25vh. If between 25vh and 40vh, and 16/9 is too short, will fill space available to fit text */
 
 				/* margin-top: calc(var(--fs-4) * 1.5); */
