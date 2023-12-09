@@ -70,10 +70,7 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	import {
-		toggleMenu,
-		updateTabindexBasedOnButtonDisplay,
-	} from "../utils/toggleMenu.ts";
+	import { toggleMenu, updateOnLoadAndResize } from "../utils/toggleMenu.ts";
 
 	document.addEventListener("astro:page-load", () => {
 		const buttonParent = document.querySelector(".burger-button");
@@ -81,10 +78,10 @@ import logo from "../assets/images/Caio.jpg";
 		const menu = document.querySelector(".navigation-items");
 		const links = menu?.querySelectorAll("a");
 
-		updateTabindexBasedOnButtonDisplay(buttonParent, menu, links);
+		updateOnLoadAndResize(buttonParent, menu, links);
 
 		window.addEventListener("resize", () =>
-			updateTabindexBasedOnButtonDisplay(buttonParent, menu, links),
+			updateOnLoadAndResize(buttonParent, menu, links),
 		);
 
 		button?.addEventListener("click", () => {
