@@ -10,20 +10,15 @@ function toggleMenu(menu: Menu, links: Links) {
 	setTabindex(links, tabindex);
 }
 
-function closeMenu(menu: Menu, links: Links) {
-	removeClassOpen(menu);
-	setTabindex(links, "-1");
+function defineTabindex(menu: Menu) {
+	return menu?.classList.contains("open") ? "0" : "-1";
 }
 
-function removeClassOpen(menu: Menu) {
-	menu?.classList.remove("open");
+function setTabindex(links: Links, number: Tabindex) {
+	links?.forEach((link) => link.setAttribute("tabindex", number));
 }
 
-function updateTabindexBasedOnButtonDisplay(
-	buttonParent: Menu,
-	menu: Menu,
-	links: Links,
-) {
+function updateOnLoadAndResize(buttonParent: Menu, menu: Menu, links: Links) {
 	buttonParent && getComputedStyle(buttonParent).display === "none"
 		? setDesktopView(menu, links)
 		: setTabindex(links, "-1");
@@ -33,12 +28,9 @@ function setDesktopView(menu: Menu, links: Links) {
 	removeClassOpen(menu);
 	setTabindex(links, "0");
 }
-function defineTabindex(menu: Menu) {
-	return menu?.classList.contains("open") ? "0" : "-1";
+
+function removeClassOpen(menu: Menu) {
+	menu?.classList.remove("open");
 }
 
-function setTabindex(links: Links, number: Tabindex) {
-	links?.forEach((link) => link.setAttribute("tabindex", number));
-}
-
-export { toggleMenu, setTabindex, updateTabindexBasedOnButtonDisplay };
+export { toggleMenu, setTabindex, updateOnLoadAndResize };
