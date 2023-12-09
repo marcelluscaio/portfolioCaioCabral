@@ -70,26 +70,25 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	import { openMenu, setTabindex } from "../utils/openMenu.ts";
+	import {
+		toggleMenu,
+		updateTabindexBasedOnButtonDisplay,
+	} from "../utils/toggleMenu.ts";
+
 	document.addEventListener("astro:page-load", () => {
-		const button = document.querySelector(".burger-button button");
+		const buttonParent = document.querySelector(".burger-button");
+		const button = buttonParent?.querySelector(".burger-button button");
 		const menu = document.querySelector(".navigation-items");
 		const links = menu?.querySelectorAll("a");
 
-		button?.parentElement &&
-		getComputedStyle(button.parentElement).display === "none"
-			? setTabindex(links, "0")
-			: setTabindex(links, "-1");
+		updateTabindexBasedOnButtonDisplay(buttonParent, menu, links);
 
-		window.addEventListener("resize", () => {
-			button?.parentElement &&
-			getComputedStyle(button.parentElement).display === "none"
-				? setTabindex(links, "0")
-				: setTabindex(links, "-1");
-		});
+		window.addEventListener("resize", () =>
+			updateTabindexBasedOnButtonDisplay(buttonParent, menu, links),
+		);
 
 		button?.addEventListener("click", () => {
-			openMenu(menu, links);
+			toggleMenu(menu, links);
 		});
 	});
 </script>
@@ -236,7 +235,9 @@ import logo from "../assets/images/Caio.jpg";
 			transform: none;
 
 			transition: none;
-
+			&.open {
+				transform: none;
+			}
 			ul {
 				flex-direction: row;
 				align-items: flex-start;
