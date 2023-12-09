@@ -70,26 +70,25 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	import { openMenu, setTabindex } from "../utils/openMenu.ts";
+	import {
+		toggleMenu,
+		setTabindex,
+		updateTabindexBasedOnButtonDisplay,
+	} from "../utils/toggleMenu.ts";
 	document.addEventListener("astro:page-load", () => {
-		const button = document.querySelector(".burger-button button");
+		const buttonParent = document.querySelector(".burger-button");
+		const button = buttonParent?.querySelector(".burger-button button");
 		const menu = document.querySelector(".navigation-items");
 		const links = menu?.querySelectorAll("a");
 
-		button?.parentElement &&
-		getComputedStyle(button.parentElement).display === "none"
-			? setTabindex(links, "0")
-			: setTabindex(links, "-1");
+		updateTabindexBasedOnButtonDisplay(buttonParent, links);
 
-		window.addEventListener("resize", () => {
-			button?.parentElement &&
-			getComputedStyle(button.parentElement).display === "none"
-				? setTabindex(links, "0")
-				: setTabindex(links, "-1");
-		});
+		window.addEventListener("resize", () =>
+			updateTabindexBasedOnButtonDisplay(buttonParent, links),
+		);
 
 		button?.addEventListener("click", () => {
-			openMenu(menu, links);
+			toggleMenu(menu, links);
 		});
 	});
 </script>
