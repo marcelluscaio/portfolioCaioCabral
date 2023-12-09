@@ -11,16 +11,28 @@ function toggleMenu(menu: Menu, links: Links) {
 }
 
 function closeMenu(menu: Menu, links: Links) {
-	menu?.classList.remove("open");
+	removeClassOpen(menu);
 	setTabindex(links, "-1");
 }
 
-function updateTabindexBasedOnButtonDisplay(buttonParent: Menu, links: Links) {
+function removeClassOpen(menu: Menu) {
+	menu?.classList.remove("open");
+}
+
+function updateTabindexBasedOnButtonDisplay(
+	buttonParent: Menu,
+	menu: Menu,
+	links: Links,
+) {
 	buttonParent && getComputedStyle(buttonParent).display === "none"
-		? setTabindex(links, "0")
+		? setDesktopView(menu, links)
 		: setTabindex(links, "-1");
 }
 
+function setDesktopView(menu: Menu, links: Links) {
+	removeClassOpen(menu);
+	setTabindex(links, "0");
+}
 function defineTabindex(menu: Menu) {
 	return menu?.classList.contains("open") ? "0" : "-1";
 }
