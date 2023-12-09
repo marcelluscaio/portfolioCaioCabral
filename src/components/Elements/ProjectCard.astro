@@ -26,7 +26,7 @@ const Heading = headingLevel;
 const childHeading = generateChildHeading(headingLevel);
 ---
 
-<article transition:animate={slide({ duration: ".5s" })}>
+<article>
 	<div class="text">
 		<Heading class="title--small heading">
 			{title}
@@ -44,6 +44,7 @@ const childHeading = generateChildHeading(headingLevel);
 		src={image}
 		alt={imageAltText}
 		transition:name={`project-${normalizeString(title)}`}
+		transition:animate={slide({ duration: ".5s" })}
 	/>
 	<div class="button">
 		<Button
