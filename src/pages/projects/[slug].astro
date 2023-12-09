@@ -2,6 +2,8 @@
 import projectsData from "../../utils/returnProjects.ts";
 import { generateChildHeading } from "../../utils/generateChildHeading.ts";
 import { generateParagraphs } from "../../utils/generateParagraphs.ts";
+import { normalizeString } from "../../utils/normalizeString";
+
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import TechnologiesList from "../../components/Elements/TechnologiesList.astro";
@@ -67,6 +69,7 @@ const [
 			<Image
 				src={image1}
 				alt={altImage1}
+				transition:name={`project-${normalizeString(title)}`}
 			/>
 			<div class="text-container">
 				{

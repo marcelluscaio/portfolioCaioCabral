@@ -1,8 +1,11 @@
 ---
+import type { HeadingLevel } from "../../types/headingLevel";
+
+import { generateChildHeading } from "../../utils/generateChildHeading";
+import { normalizeString } from "../../utils/normalizeString";
+
 import { Image } from "astro:assets";
 import { slide } from "astro:transitions";
-import type { HeadingLevel } from "../../types/headingLevel";
-import { generateChildHeading } from "../../utils/generateChildHeading";
 import TechnologiesList from "./TechnologiesList.astro";
 import Button from "./Button.astro";
 
@@ -40,6 +43,7 @@ const childHeading = generateChildHeading(headingLevel);
 	<Image
 		src={image}
 		alt={imageAltText}
+		transition:name={`project-${normalizeString(title)}`}
 	/>
 	<div class="button">
 		<Button
