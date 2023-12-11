@@ -13,8 +13,9 @@ import FilterTechnologies from "../Elements/FilterTechnologies.astro";
 type Props = {
 	headingLevel: HeadingLevel;
 	filter?: ProjectFilters;
+	slide?: boolean;
 };
-const { headingLevel, filter = "" } = Astro.props;
+const { headingLevel, filter = "", slide = true } = Astro.props;
 
 const projects = filter ? filterProjects(projectsData, filter) : projectsData;
 
@@ -40,6 +41,7 @@ const isHome = path === "/";
 						imageAltText={project.altImage1}
 						slug={project.slug}
 						headingLevel={childHeading}
+						shouldSlide={slide}
 					/>
 				);
 			})

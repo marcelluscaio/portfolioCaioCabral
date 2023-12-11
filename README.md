@@ -1,8 +1,8 @@
 # My Portfolio
 
-My portfolio for Le Repaire du Web Contest.
+Creates with great attention to accessibility. Can be zoomed to 200% and default font-size can be 32px.
 
-Create with great attention to accessibility. Can be zoomed to 200% and default font-size can be 32px.
+- Focus trap on menu
 
 ## Chores
 
