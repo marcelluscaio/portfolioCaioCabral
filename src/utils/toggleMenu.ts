@@ -34,15 +34,21 @@ function updateOnLoadAndResize(
 	buttonParent: NonSpecificElement,
 	menu: NonSpecificElement,
 	links: Links,
+	focusableElements: Element[],
 ) {
 	buttonParent && getComputedStyle(buttonParent).display === "none"
-		? setDesktopView(menu, links)
+		? setDesktopView(menu, links, focusableElements)
 		: setTabindex(links, "-1");
 }
 
-function setDesktopView(menu: NonSpecificElement, links: Links) {
+function setDesktopView(
+	menu: NonSpecificElement,
+	links: Links,
+	focusableElements: Element[],
+) {
 	removeClassOpen(menu);
 	setTabindex(links, "0");
+	removeFocusTrap(focusableElements);
 }
 
 function removeClassOpen(menu: NonSpecificElement) {

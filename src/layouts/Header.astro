@@ -85,10 +85,10 @@ import logo from "../assets/images/Caio.jpg";
 		const isFocusable = document.querySelectorAll("a, button");
 		const isFocusableNotLinks = focusableNotLinks(isFocusable, links);
 
-		updateOnLoadAndResize(buttonParent, menu, links);
+		updateOnLoadAndResize(buttonParent, menu, links, isFocusableNotLinks);
 
 		window.addEventListener("resize", () =>
-			updateOnLoadAndResize(buttonParent, menu, links),
+			updateOnLoadAndResize(buttonParent, menu, links, isFocusableNotLinks),
 		);
 
 		button?.addEventListener("click", () => {
@@ -100,10 +100,17 @@ import logo from "../assets/images/Caio.jpg";
 				closeMenu(menu, links, isFocusableNotLinks),
 			),
 		);
+
 		document.addEventListener("click", (e) => {
 			const element = e.target as Element;
 			//@ts-ignore
 			if (!element.closest(menu.tagName) && e.target !== button) {
+				closeMenu(menu, links, isFocusableNotLinks);
+			}
+		});
+
+		document.addEventListener("keyup", (e) => {
+			if (e.key === "Escape") {
 				closeMenu(menu, links, isFocusableNotLinks);
 			}
 		});
