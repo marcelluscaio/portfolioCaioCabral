@@ -70,15 +70,17 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	import {
+	/* import {
 		toggleMenu,
 		updateOnLoadAndResize,
 		focusableNotLinks,
 		closeMenu,
-	} from "../utils/toggleMenu.ts";
+	} from "../utils/toggleMenu.ts"; */
+	import { startMenu } from "../utils/menuEngine.ts";
 
 	document.addEventListener("astro:page-load", () => {
-		const buttonParent = document.querySelector(".burger-button");
+		startMenu();
+		/* const buttonParent = document.querySelector(".burger-button");
 		const button = buttonParent?.querySelector(".burger-button button");
 		const menu = document.querySelector(".navigation-items");
 		const links = menu?.querySelectorAll("a");
@@ -113,7 +115,7 @@ import logo from "../assets/images/Caio.jpg";
 			if (e.key === "Escape") {
 				closeMenu(menu, links, isFocusableNotLinks);
 			}
-		});
+		}); */
 	});
 </script>
 
