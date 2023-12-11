@@ -3,32 +3,9 @@ type Links = NodeListOf<HTMLAnchorElement> | undefined;
 type FocusableElements = NodeListOf<Element> | undefined;
 type Tabindex = "0" | "-1";
 
-function toggleMenu(
-	menu: NonSpecificElement,
-	links: Links,
-	focusableElements: Element[],
-) {
-	menu?.classList.toggle("open");
+const buttonParent = document.querySelector(".burger-button");
 
-	const tabindex = defineTabindex(menu);
-
-	setTabindex(links, tabindex);
-
-	toggleFocusTrap(focusableElements, tabindex);
-}
-
-function defineTabindex(menu: NonSpecificElement) {
-	return menu?.classList.contains("open") ? "0" : "-1";
-}
-
-function setTabindex(links: Links | Element[], number: Tabindex) {
-	links?.forEach((link) => link.setAttribute("tabindex", number));
-}
-
-function toggleFocusTrap(focusableElements: Element[], number: Tabindex) {
-	const invertedNumber = number === "0" ? "-1" : "0";
-	setTabindex(focusableElements, invertedNumber);
-}
+const button = buttonParent?.querySelector(".burger-button button");
 
 function updateOnLoadAndResize(
 	buttonParent: NonSpecificElement,
@@ -49,10 +26,44 @@ function setDesktopView(
 	removeClassOpen(menu);
 	setTabindex(links, "0");
 	removeFocusTrap(focusableElements);
+	removeAriaExpanded();
+}
+
+function setTabindex(links: Links | Element[], number: Tabindex) {
+	links?.forEach((link) => link.setAttribute("tabindex", number));
 }
 
 function removeClassOpen(menu: NonSpecificElement) {
 	menu?.classList.remove("open");
+}
+
+function removeFocusTrap(focusableElements: Element[]) {
+	setTabindex(focusableElements, "0");
+}
+
+function toggleMenu(
+	menu: NonSpecificElement,
+	links: Links,
+	focusableElements: Element[],
+) {
+	menu?.classList.toggle("open");
+
+	const tabindex = defineTabindex(menu);
+
+	setTabindex(links, tabindex);
+
+	toggleFocusTrap(focusableElements, tabindex);
+
+	updateAriaExpanded();
+}
+
+function defineTabindex(menu: NonSpecificElement) {
+	return menu?.classList.contains("open") ? "0" : "-1";
+}
+
+function toggleFocusTrap(focusableElements: Element[], number: Tabindex) {
+	const invertedNumber = number === "0" ? "-1" : "0";
+	setTabindex(focusableElements, invertedNumber);
 }
 
 function closeMenu(
@@ -60,13 +71,26 @@ function closeMenu(
 	links: Links,
 	focusableElements: Element[],
 ) {
-	removeClassOpen(menu);
-	setTabindex(links, "-1");
-	removeFocusTrap(focusableElements);
+	if (buttonParent && getComputedStyle(buttonParent).display !== "none") {
+		removeClassOpen(menu);
+		setTabindex(links, "-1");
+		removeFocusTrap(focusableElements);
+		removeAriaExpanded();
+	}
 }
 
-function removeFocusTrap(focusableElements: Element[]) {
-	setTabindex(focusableElements, "0");
+function updateAriaExpanded() {
+	if (button) {
+		const expandedAsBoolean = button.getAttribute("aria-expanded") === "true";
+		const newValue = !expandedAsBoolean;
+		button.setAttribute("aria-expanded", newValue.toString());
+	}
+}
+
+function removeAriaExpanded() {
+	if (button) {
+		button.setAttribute("aria-expanded", "false");
+	}
 }
 
 function focusableNotLinks(focusableElements: FocusableElements, links: Links) {
