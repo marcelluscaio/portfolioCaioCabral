@@ -49,6 +49,20 @@ function removeClassOpen(menu: NonSpecificElement) {
 	menu?.classList.remove("open");
 }
 
+function closeMenu(
+	menu: NonSpecificElement,
+	links: Links,
+	focusableElements: Element[],
+) {
+	removeClassOpen(menu);
+	setTabindex(links, "-1");
+	removeFocusTrap(focusableElements);
+}
+
+function removeFocusTrap(focusableElements: Element[]) {
+	setTabindex(focusableElements, "0");
+}
+
 function focusableNotLinks(focusableElements: FocusableElements, links: Links) {
 	const elements = [];
 	if (focusableElements && links) {
@@ -67,4 +81,4 @@ function focusableNotLinks(focusableElements: FocusableElements, links: Links) {
 	return elements;
 }
 
-export { toggleMenu, setTabindex, updateOnLoadAndResize, focusableNotLinks };
+export { toggleMenu, updateOnLoadAndResize, focusableNotLinks, closeMenu };

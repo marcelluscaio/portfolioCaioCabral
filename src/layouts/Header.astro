@@ -74,6 +74,7 @@ import logo from "../assets/images/Caio.jpg";
 		toggleMenu,
 		updateOnLoadAndResize,
 		focusableNotLinks,
+		closeMenu,
 	} from "../utils/toggleMenu.ts";
 
 	document.addEventListener("astro:page-load", () => {
@@ -93,6 +94,12 @@ import logo from "../assets/images/Caio.jpg";
 		button?.addEventListener("click", () => {
 			toggleMenu(menu, links, isFocusableNotLinks);
 		});
+
+		links?.forEach((link) =>
+			link.addEventListener("click", () =>
+				closeMenu(menu, links, isFocusableNotLinks),
+			),
+		);
 	});
 </script>
 
