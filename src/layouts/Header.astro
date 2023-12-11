@@ -70,13 +70,19 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	import { toggleMenu, updateOnLoadAndResize } from "../utils/toggleMenu.ts";
+	import {
+		toggleMenu,
+		updateOnLoadAndResize,
+		focusableNotLinks,
+	} from "../utils/toggleMenu.ts";
 
 	document.addEventListener("astro:page-load", () => {
 		const buttonParent = document.querySelector(".burger-button");
 		const button = buttonParent?.querySelector(".burger-button button");
 		const menu = document.querySelector(".navigation-items");
 		const links = menu?.querySelectorAll("a");
+		const isFocusable = document.querySelectorAll("a, button");
+		const isFocusableNotLinks = focusableNotLinks(isFocusable, links);
 
 		updateOnLoadAndResize(buttonParent, menu, links);
 
@@ -85,7 +91,7 @@ import logo from "../assets/images/Caio.jpg";
 		);
 
 		button?.addEventListener("click", () => {
-			toggleMenu(menu, links);
+			toggleMenu(menu, links, isFocusableNotLinks);
 		});
 	});
 </script>
