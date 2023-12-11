@@ -70,29 +70,10 @@ import logo from "../assets/images/Caio.jpg";
 </header>
 
 <script>
-	import {
-		toggleMenu,
-		updateOnLoadAndResize,
-		focusableNotLinks,
-	} from "../utils/toggleMenu.ts";
+	import { startMenu } from "../utils/menuEngine.ts";
 
 	document.addEventListener("astro:page-load", () => {
-		const buttonParent = document.querySelector(".burger-button");
-		const button = buttonParent?.querySelector(".burger-button button");
-		const menu = document.querySelector(".navigation-items");
-		const links = menu?.querySelectorAll("a");
-		const isFocusable = document.querySelectorAll("a, button");
-		const isFocusableNotLinks = focusableNotLinks(isFocusable, links);
-
-		updateOnLoadAndResize(buttonParent, menu, links);
-
-		window.addEventListener("resize", () =>
-			updateOnLoadAndResize(buttonParent, menu, links),
-		);
-
-		button?.addEventListener("click", () => {
-			toggleMenu(menu, links, isFocusableNotLinks);
-		});
+		startMenu();
 	});
 </script>
 
@@ -165,12 +146,20 @@ import logo from "../assets/images/Caio.jpg";
 
 			background-color: transparent;
 
+			transition: rotate 0.5s ease-in;
+
+			&[aria-expanded="true"] {
+				rotate: 90deg;
+			}
+
 			& div {
 				width: 70%;
 				height: var(--line-size);
 				border-radius: calc(var(--line-size) / 2);
 
 				background-color: $white;
+
+				pointer-events: none;
 			}
 		}
 	}
@@ -211,10 +200,12 @@ import logo from "../assets/images/Caio.jpg";
 					left: 50%;
 					transform: translateY(4vh) translateX(-50%);
 
-					padding-bottom: 0.75em;
+					/* padding-bottom: 0.75em; */
+					padding-inline: 0.75em;
 
 					writing-mode: tb;
-					text-wrap: nowrap;
+					/* text-wrap: nowrap; */
+					white-space: nowrap;
 					text-orientation: upright;
 					letter-spacing: -0.4em;
 				}
