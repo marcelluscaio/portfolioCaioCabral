@@ -21,7 +21,7 @@ function defineTabindex(menu: NonSpecificElement) {
 	return menu?.classList.contains("open") ? "0" : "-1";
 }
 
-function setTabindex(links: Links, number: Tabindex) {
+function setTabindex(links: Links | Element[], number: Tabindex) {
 	links?.forEach((link) => link.setAttribute("tabindex", number));
 }
 
@@ -51,16 +51,19 @@ function removeClassOpen(menu: NonSpecificElement) {
 
 function focusableNotLinks(focusableElements: FocusableElements, links: Links) {
 	const elements = [];
-	for (let i = 0; i < focusableElements.length; i++) {
-		for (let j = 0; j < links.length; j++) {
-			if (focusableElements[i] === links[j]) {
-				break;
-			}
-			if (j === links.length - 1) {
-				elements.push(focusableElements[i]);
+	if (focusableElements && links) {
+		for (let i = 0; i < focusableElements.length; i++) {
+			for (let j = 0; j < links.length; j++) {
+				if (focusableElements[i] === links[j]) {
+					break;
+				}
+				if (j === links.length - 1) {
+					elements.push(focusableElements[i]);
+				}
 			}
 		}
 	}
+
 	return elements;
 }
 
