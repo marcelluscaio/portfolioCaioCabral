@@ -30,21 +30,6 @@ function toggleFocusTrap(focusableElements: Element[], number: Tabindex) {
 	setTabindex(focusableElements, invertedNumber);
 }
 
-function focusableNotLinks(focusableElements: FocusableElements, links: Links) {
-	const elements = [];
-	for (let i = 0; i < focusableElements.length; i++) {
-		for (let j = 0; j < links.length; j++) {
-			if (focusableElements[i] === links[j]) {
-				break;
-			}
-			if (j === links.length - 1) {
-				elements.push(focusableElements[i]);
-			}
-		}
-	}
-	return elements;
-}
-
 function updateOnLoadAndResize(
 	buttonParent: NonSpecificElement,
 	menu: NonSpecificElement,
@@ -62,6 +47,21 @@ function setDesktopView(menu: NonSpecificElement, links: Links) {
 
 function removeClassOpen(menu: NonSpecificElement) {
 	menu?.classList.remove("open");
+}
+
+function focusableNotLinks(focusableElements: FocusableElements, links: Links) {
+	const elements = [];
+	for (let i = 0; i < focusableElements.length; i++) {
+		for (let j = 0; j < links.length; j++) {
+			if (focusableElements[i] === links[j]) {
+				break;
+			}
+			if (j === links.length - 1) {
+				elements.push(focusableElements[i]);
+			}
+		}
+	}
+	return elements;
 }
 
 export { toggleMenu, setTabindex, updateOnLoadAndResize, focusableNotLinks };
