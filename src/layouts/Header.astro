@@ -100,6 +100,13 @@ import logo from "../assets/images/Caio.jpg";
 				closeMenu(menu, links, isFocusableNotLinks),
 			),
 		);
+		document.addEventListener("click", (e) => {
+			const element = e.target as Element;
+			//@ts-ignore
+			if (!element.closest(menu.tagName) && e.target !== button) {
+				closeMenu(menu, links, isFocusableNotLinks);
+			}
+		});
 	});
 </script>
 
@@ -178,6 +185,8 @@ import logo from "../assets/images/Caio.jpg";
 				border-radius: calc(var(--line-size) / 2);
 
 				background-color: $white;
+
+				pointer-events: none;
 			}
 		}
 	}
