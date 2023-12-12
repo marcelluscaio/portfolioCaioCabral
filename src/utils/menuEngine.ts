@@ -1,45 +1,35 @@
 import {
-	toggleMenu,
+	/* toggleMenu,
 	updateOnLoadAndResize,
 	focusableNotLinks,
-	closeMenu,
+	closeMenu, */
+	Menu,
 } from "./toggleMenu.ts";
 
 function startMenu() {
 	const buttonParent = document.querySelector(".burger-button");
-	const button = buttonParent?.querySelector(".burger-button button");
 	const menu = document.querySelector(".navigation-items");
 	const links = menu?.querySelectorAll("a");
-	const isFocusable = document.querySelectorAll("a, button");
-	const isFocusableNotLinks = focusableNotLinks(isFocusable, links);
 
-	updateOnLoadAndResize(buttonParent, menu, links, isFocusableNotLinks);
+	const menuClass = new Menu(buttonParent, menu, links);
 
-	window.addEventListener("resize", () =>
-		updateOnLoadAndResize(buttonParent, menu, links, isFocusableNotLinks),
-	);
+	menuClass.updateOnLoadAndResize();
+	window.addEventListener("resize", () => menuClass.updateOnLoadAndResize());
 
-	button?.addEventListener("click", () => {
-		toggleMenu(menu, links, isFocusableNotLinks);
+	buttonParent?.addEventListener("click", () => {
+		menuClass.toggleMenu();
 	});
 
-	links?.forEach((link) =>
-		link.addEventListener("click", () =>
-			closeMenu(menu, links, isFocusableNotLinks),
-		),
-	);
-
 	document.addEventListener("click", (e) => {
-		const element = e.target as Element;
 		//@ts-ignore
-		if (!element.closest(menu.tagName) && e.target !== button) {
-			closeMenu(menu, links, isFocusableNotLinks);
+		if (!e.target.closest(menu.tagName) && e.target !== buttonParent) {
+			menuClass.closeMenu();
 		}
 	});
 
 	document.addEventListener("keyup", (e) => {
 		if (e.key === "Escape") {
-			closeMenu(menu, links, isFocusableNotLinks);
+			menuClass.closeMenu();
 		}
 	});
 }
