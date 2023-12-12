@@ -77,10 +77,7 @@ class Menu {
 	}
 
 	closeMenu() {
-		if (
-			this.buttonParent &&
-			getComputedStyle(this.buttonParent).display !== "none"
-		) {
+		if (!this.isDesktop) {
 			this.removeMenuClassOpen();
 			this.setTabindex();
 			this.updateAriaExpanded();
