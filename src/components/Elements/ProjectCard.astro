@@ -35,7 +35,10 @@ const Heading = headingLevel;
 const childHeading = generateChildHeading(headingLevel);
 ---
 
-<article>
+<article
+	transition:animate={shouldSlide ? "none" : fade({ duration: ".5s" })}
+	transition:name={`project-card-${normalizeString(title)}`}
+>
 	<div class="text">
 		<Heading class="title--small heading">
 			{title}
@@ -55,7 +58,7 @@ const childHeading = generateChildHeading(headingLevel);
 		transition:name={`project-${normalizeString(title)}`}
 		transition:animate={shouldSlide
 			? slide({ duration: ".5s" })
-			: fade({ duration: "1s" })}
+			: fade({ duration: ".5s" })}
 	/>
 	<div class="button">
 		<Button
