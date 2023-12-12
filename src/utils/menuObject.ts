@@ -1,5 +1,4 @@
-type GenericElement = Element | null;
-type Links = NodeListOf<HTMLAnchorElement> | undefined;
+import type { GenericElement, Links } from "../types/menuEngine";
 
 class Menu {
 	buttonParent;
@@ -20,34 +19,47 @@ class Menu {
 		this.isDesktop =
 			this.buttonParent && getComputedStyle(this.buttonParent).display === "none";
 
+		this.buttonParent?.addEventListener("click", () => this.toggleMenu());
+
 		this.links?.forEach((link) =>
 			link.addEventListener("click", () => this.closeMenu()),
 		);
-
-		this.buttonParent?.addEventListener("click", () => this.toggleMenu());
 	}
 
-	updateOnLoadAndResize() {
-		if (this.buttonParent) {
-			this.isDesktop = getComputedStyle(this.buttonParent).display === "none";
+	toggleMenu() {
+		this.toggleIsOpen();
+		this.updateSettings();
+	}
 
-			this.isDesktop ? this.setDesktopView() : this.setMobileView();
+	closeMenu() {
+		if (!this.isDesktop) {
+			this.closeIsOpen();
+			this.updateSettings();
 		}
 	}
 
-	setDesktopView() {
-		this.removeMenuClassOpen();
+	closeIsOpen() {
+		this.isOpen = false;
+	}
+
+	toggleIsOpen() {
+		this.isOpen = !this.isOpen;
+	}
+
+	updateSettings() {
+		this.updateMenuClass();
 		this.setTabindex();
 		this.updateAriaExpanded();
 	}
 
-	setMobileView() {
-		this.setTabindex();
-	}
-
-	removeMenuClassOpen() {
-		this.menu?.classList.remove("open");
-		this.isOpen = false;
+	updateMenuClass() {
+		if (this.isDesktop) {
+			this.menu?.classList.remove("open");
+		} else if (!this.isDesktop && this.isOpen) {
+			this.menu?.classList.add("open");
+		} else if (!this.isDesktop && !this.isOpen) {
+			this.menu?.classList.remove("open");
+		}
 	}
 
 	setTabindex() {
@@ -63,25 +75,25 @@ class Menu {
 		}
 	}
 
-	toggleMenu() {
-		this.menu?.classList.toggle("open");
-		this.isOpen = !this.isOpen;
-
-		this.setTabindex();
-
-		this.updateAriaExpanded();
-	}
-
 	updateAriaExpanded() {
 		this.button?.setAttribute("aria-expanded", this.isOpen.toString());
 	}
 
-	closeMenu() {
-		if (!this.isDesktop) {
-			this.removeMenuClassOpen();
-			this.setTabindex();
-			this.updateAriaExpanded();
+	updateOnLoadAndResize() {
+		if (this.buttonParent) {
+			this.isDesktop = getComputedStyle(this.buttonParent).display === "none";
+
+			this.isDesktop ? this.setDesktopView() : this.setMobileView();
 		}
+	}
+
+	setDesktopView() {
+		this.closeIsOpen();
+		this.updateSettings();
+	}
+
+	setMobileView() {
+		this.setTabindex();
 	}
 
 	linksNotMenu() {

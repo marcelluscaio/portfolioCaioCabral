@@ -1,4 +1,4 @@
-import { Menu } from "./toggleMenu.ts";
+import { Menu } from "./menuObject.ts";
 
 function startMenu() {
 	const buttonParent = document.querySelector(".burger-button");
