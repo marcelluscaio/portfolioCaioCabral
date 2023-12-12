@@ -1,10 +1,4 @@
-import {
-	/* toggleMenu,
-	updateOnLoadAndResize,
-	focusableNotLinks,
-	closeMenu, */
-	Menu,
-} from "./toggleMenu.ts";
+import { Menu } from "./toggleMenu.ts";
 
 function startMenu() {
 	const buttonParent = document.querySelector(".burger-button");
@@ -14,15 +8,15 @@ function startMenu() {
 	const menuClass = new Menu(buttonParent, menu, links);
 
 	menuClass.updateOnLoadAndResize();
+
 	window.addEventListener("resize", () => menuClass.updateOnLoadAndResize());
 
-	buttonParent?.addEventListener("click", () => {
-		menuClass.toggleMenu();
-	});
-
 	document.addEventListener("click", (e) => {
-		//@ts-ignore
-		if (!e.target.closest(menu.tagName) && e.target !== buttonParent) {
+		if (
+			//@ts-ignore
+			!e.target.closest(menuClass.menu.tagName) &&
+			e.target !== menuClass.buttonParent
+		) {
 			menuClass.closeMenu();
 		}
 	});
