@@ -39,7 +39,11 @@ const { title, transition } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body transition:animate={fade({ duration: "1s" })}>
-		<div class="vertical-lign container"></div>
+		<div
+			class="vertical-lign container"
+			transition:animate="none"
+		>
+		</div>
 		<Header />
 		<main>
 			<div class="container">
