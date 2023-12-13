@@ -13,7 +13,7 @@ type Props = {
 	title: string;
 	technologies: string[];
 	summary: string;
-	image: ImageMetadata;
+	image: ImageMetadata | undefined;
 	imageAltText: string;
 	slug: string;
 	headingLevel: HeadingLevel;
@@ -35,7 +35,10 @@ const Heading = headingLevel;
 const childHeading = generateChildHeading(headingLevel);
 ---
 
-<article>
+<article
+	transition:animate={shouldSlide ? "none" : fade({ duration: ".5s" })}
+	transition:name={`project-card-${normalizeString(title)}`}
+>
 	<div class="text">
 		<Heading class="title--small heading">
 			{title}
@@ -49,14 +52,18 @@ const childHeading = generateChildHeading(headingLevel);
 			{summary}
 		</p>
 	</div>
-	<Image
-		src={image}
-		alt={imageAltText}
-		transition:name={`project-${normalizeString(title)}`}
-		transition:animate={shouldSlide
-			? slide({ duration: ".5s" })
-			: fade({ duration: "1s" })}
-	/>
+	{
+		image && (
+			<Image
+				src={image}
+				alt={imageAltText}
+				transition:name={`project-${normalizeString(title)}`}
+				transition:animate={
+					shouldSlide ? slide({ duration: ".5s" }) : fade({ duration: ".5s" })
+				}
+			/>
+		)
+	}
 	<div class="button">
 		<Button
 			href={`/projects/${slug}`}
@@ -91,6 +98,8 @@ const childHeading = generateChildHeading(headingLevel);
 		.text {
 			.heading {
 				margin-bottom: 0.5em;
+
+				word-break: break-word;
 			}
 
 			p {

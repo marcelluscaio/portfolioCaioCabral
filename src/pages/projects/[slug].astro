@@ -66,11 +66,15 @@ const [
 			headingLevel={childHeading}
 		/>
 		<div class="flex">
-			<Image
-				src={image1}
-				alt={altImage1}
-				transition:name={`project-${normalizeString(title)}`}
-			/>
+			{
+				image1 && (
+					<Image
+						src={image1}
+						alt={altImage1}
+						transition:name={`project-${normalizeString(title)}`}
+					/>
+				)
+			}
 			<div class="text-container">
 				{
 					summaryArray.map((text: string) => (
@@ -101,10 +105,14 @@ const [
 			</div>
 		</div>
 		<div class="flex">
-			<Image
-				src={image2}
-				alt={altImage2}
-			/>
+			{
+				image2 && (
+					<Image
+						src={image2}
+						alt={altImage2}
+					/>
+				)
+			}
 			<div class="text-container">
 				{
 					challengesArray.map((text: string) => {
