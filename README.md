@@ -4,7 +4,7 @@ My portfolio portrays some of my projects and articles.
 
 ## Purpose
 
-I created so companies and hiring managers can easily understand my experience and skills.
+I created this project so companies and hiring managers can easily understand my experience and skills.
 
 ## Technologies
 
@@ -41,6 +41,7 @@ TypeScript and Zod helped me a lot to catch bugs ahead of time, and to ensure my
 - On screen resize, all settings are updated
 
 The code was like this:
+
 menuEngine
 
 ```ts
@@ -212,6 +213,7 @@ export { toggleMenu, updateOnLoadAndResize, focusableNotLinks, closeMenu };
 ```
 
 And it got to this:
+
 menuEngine
 
 ```ts
