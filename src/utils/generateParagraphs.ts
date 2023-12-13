@@ -1,4 +1,4 @@
-function generateParagraphs(str) {
+function generateParagraphs(str: string) {
 	const paragraphsArray = str.split("\n");
 	return paragraphsArray;
 }
