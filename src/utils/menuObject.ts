@@ -69,6 +69,7 @@ class Menu {
 		} else if (!this.isDesktop && this.isOpen) {
 			this.links?.forEach((link) => link.setAttribute("tabindex", "0"));
 			this.focusableNotLinks.forEach((item) => item.setAttribute("tabindex", "-1"));
+			this.button.setAttribute("tabindex", "0");
 		} else if (!this.isDesktop && !this.isOpen) {
 			this.links?.forEach((link) => link.setAttribute("tabindex", "-1"));
 			this.focusableNotLinks.forEach((item) => item.setAttribute("tabindex", "0"));

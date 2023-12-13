@@ -28,7 +28,8 @@ const isInCard = ["h3", "h4"].includes(headingLevel) ? "isInCard" : "";
 	@use "../../styles/style.scss" as *;
 	.list {
 		display: flex;
-		/* flex-wrap: wrap; */
+
+		flex-wrap: wrap;
 		column-gap: 0.5em;
 
 		margin-bottom: 0.5em;
@@ -67,5 +68,11 @@ const isInCard = ["h3", "h4"].includes(headingLevel) ? "isInCard" : "";
 	.isInCard *::selection {
 		background-color: $purple-700;
 		color: $purple-300;
+	}
+
+	@media (min-width: 40em) {
+		.list {
+			flex-wrap: nowrap;
+		}
 	}
 </style>
