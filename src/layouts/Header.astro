@@ -146,6 +146,8 @@ import logo from "../assets/images/Caio.jpg";
 
 			background-color: transparent;
 
+			color: $white;
+
 			transition: rotate 0.5s ease-in;
 
 			&[aria-expanded="true"] {
@@ -157,7 +159,7 @@ import logo from "../assets/images/Caio.jpg";
 				height: var(--line-size);
 				border-radius: calc(var(--line-size) / 2);
 
-				background-color: $white;
+				background-color: currentColor;
 
 				pointer-events: none;
 			}
@@ -184,6 +186,11 @@ import logo from "../assets/images/Caio.jpg";
 		&.open {
 			transform: translateX(100%) translateY(100%);
 		}
+	}
+
+	a,
+	button {
+		@include focusHover(currentColor, 2px, 4px);
 	}
 
 	@media (min-width: 40em) {

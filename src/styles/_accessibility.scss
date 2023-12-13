@@ -1,0 +1,11 @@
+@mixin focusHover($color, $size, $offset: $size) {
+	outline: $size solid transparent;
+	outline-offset: $offset;
+	transition: outline 0.3s ease-in;
+	border-radius: 100vmax;
+
+	&:hover,
+	&:focus-visible {
+		outline: $size solid $color;
+	}
+}

@@ -61,14 +61,20 @@ const TagName = tag;
 
 	.bg-pink {
 		background-color: $purple-300;
+
+		@include focusHover($purple-300, 2px, 4px);
 	}
 
 	.bg-purple {
 		background-color: $purple-700;
+
+		@include focusHover($purple-700, 2px, 4px);
 	}
 
 	.bg-white {
 		background-color: $white;
+
+		@include focusHover($white, 2px, 4px);
 	}
 
 	.text-pink {
