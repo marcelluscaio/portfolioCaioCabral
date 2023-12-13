@@ -2,6 +2,8 @@ const techList = [
 	"HTML",
 	"CSS",
 	"Sass",
+	"Styled Components",
+	"Tailwind",
 	"JavaScript",
 	"TypeScript",
 	"Astro",
@@ -9,6 +11,9 @@ const techList = [
 	"Next.js",
 	"WordPress",
 	"PHP",
+	"Node.js",
+	"Express",
+	"MongoDB",
 ] as const;
 
 type Technologies = (typeof techList)[number];
