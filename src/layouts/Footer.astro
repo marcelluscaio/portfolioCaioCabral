@@ -259,6 +259,7 @@ const url = Astro.url;
 	.copyright {
 		text-align: center;
 	}
+
 	span > a {
 		font-weight: 600;
 
@@ -266,6 +267,12 @@ const url = Astro.url;
 	}
 
 	span > span {
+		color: $white;
+		text-shadow:
+			1px 1px 0 $purple-700,
+			-1px -1px 0 $purple-700,
+			1px -1px $purple-700,
+			-1px 1px $purple-700;
 		font-weight: 600;
 	}
 

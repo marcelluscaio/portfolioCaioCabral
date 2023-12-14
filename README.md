@@ -411,6 +411,8 @@ function normalizeString(str: string) {
 export { normalizeString };
 ```
 
+- Creating my own domain and redirecting to it;
+
 ## Chores
 
 - [x] Start readme
