@@ -97,11 +97,17 @@ const { title, transition } = Astro.props;
 					/*first linear gradient conceals one tip of the horizontal line
 					second one is the horizontal line
 					third one is the vertical line */
-					background-image: linear-gradient(
-							to right,
-							$purple-700 3vw,
-							transparent calc(3vw + 1px)
-						),
+					/* --linear1: linear-gradient(
+						to right,
+						$purple-700 3vw,
+						transparent calc(3vw + 1px)
+					); */
+					$linear1: linear-gradient(
+						to right,
+						$purple-700 3vw,
+						transparent calc(3vw + 1px)
+					);
+					background-image: $linear1,
 						linear-gradient(
 							to right,
 							transparent calc($start - 1px),
