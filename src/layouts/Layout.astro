@@ -102,26 +102,29 @@ const { title, transition } = Astro.props;
 						$purple-700 3vw,
 						transparent calc(3vw + 1px)
 					); */
-					$linear1: linear-gradient(
+					$purpleStripToHideTip: linear-gradient(
 						to right,
 						$purple-700 3vw,
 						transparent calc(3vw + 1px)
 					);
-					background-image: $linear1,
-						linear-gradient(
-							to right,
-							transparent calc($start - 1px),
-							$white $start,
-							$white $end,
-							transparent calc($end + 1px)
-						),
-						linear-gradient(
-							to bottom,
-							transparent calc($start-horizontal - 1px),
-							$white $start-horizontal,
-							$white $end-horizontal,
-							transparent calc($end-horizontal + 1px)
-						);
+
+					$verticalLine: linear-gradient(
+						to right,
+						transparent calc($start - 1px),
+						$white $start,
+						$white $end,
+						transparent calc($end + 1px)
+					);
+
+					$horizontalLine: linear-gradient(
+						to bottom,
+						transparent calc($start-horizontal - 1px),
+						$white $start-horizontal,
+						$white $end-horizontal,
+						transparent calc($end-horizontal + 1px)
+					);
+
+					background-image: $purpleStripToHideTip, $verticalLine, $horizontalLine;
 				}
 
 				main {
