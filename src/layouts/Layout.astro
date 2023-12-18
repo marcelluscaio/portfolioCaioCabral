@@ -86,45 +86,46 @@ const { title, transition } = Astro.props;
 
 			@media (min-width: 40em) {
 				.vertical-lign {
-					$line-size: 4px;
+					$line-size: 0.375rem;
 					$start: calc(($logo-size/2) - ($line-size / 2));
 					$end: calc($start + $line-size);
-					$start-horizontal: calc(
-						(var(--section-paddingBlock-small) + $logo-size/4) - ($line-size / 4)
-					);
-					$end-horizontal: calc($start-horizontal + ($line-size/2));
 
-					/*first linear gradient conceals one tip of the horizontal line
+					$line-size-horizontal: 0.25rem;
+					$start-horizontal: calc(
+						(var(--section-paddingBlock-small) + $logo-size/4) -
+							($line-size-horizontal / 2)
+					);
+					$end-horizontal: calc($start-horizontal + $line-size-horizontal);
+
+					/*
+					first linear gradient conceals one tip of the horizontal line
 					second one is the horizontal line
-					third one is the vertical line */
-					/* --linear1: linear-gradient(
+					third one is the vertical line 
+					*/
+
+					$purpleStripeToHideTip: linear-gradient(
 						to right,
-						$purple-700 3vw,
-						transparent calc(3vw + 1px)
-					); */
-					$purpleStripToHideTip: linear-gradient(
-						to right,
-						$purple-700 3vw,
-						transparent calc(3vw + 1px)
+						$purple-700 calc($start/2),
+						transparent calc($start/2)
 					);
 
 					$verticalLine: linear-gradient(
 						to right,
-						transparent calc($start - 1px),
+						transparent calc($start),
 						$white $start,
 						$white $end,
-						transparent calc($end + 1px)
+						transparent calc($end)
 					);
 
 					$horizontalLine: linear-gradient(
 						to bottom,
-						transparent calc($start-horizontal - 1px),
+						transparent calc($start-horizontal),
 						$white $start-horizontal,
 						$white $end-horizontal,
-						transparent calc($end-horizontal + 1px)
+						transparent calc($end-horizontal)
 					);
 
-					background-image: $purpleStripToHideTip, $verticalLine, $horizontalLine;
+					background-image: $purpleStripeToHideTip, $verticalLine, $horizontalLine;
 				}
 
 				main {
