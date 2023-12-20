@@ -9,3 +9,27 @@
 		outline: $size solid $color;
 	}
 }
+
+@mixin focusHoverLink($color, $size, $offset: $size) {
+	position: relative;
+	outline: none;
+	&::before {
+		content: "";
+
+		position: absolute;
+		bottom: $offset * -1;
+		left: 0;
+
+		height: $size;
+		width: 0;
+
+		background-color: $color;
+
+		transition: width 0.3s ease-in;
+	}
+
+	&:hover::before,
+	&:focus-visible::before {
+		width: 100%;
+	}
+}

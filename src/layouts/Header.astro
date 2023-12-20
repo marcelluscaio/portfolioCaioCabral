@@ -189,10 +189,13 @@ import logo from "../assets/images/Caio.jpg";
 			transform: translateX(100%) translateY(100%);
 		}
 	}
+	button,
+	.logo__list-item a {
+		@include focusHover(currentColor, 0.125rem, 0.25rem);
+	}
 
-	a,
-	button {
-		@include focusHover(currentColor, 2px, 4px);
+	.navigation-items a {
+		@include focusHoverLink(currentColor, 0.125em);
 	}
 
 	@media (min-width: 40em) {
